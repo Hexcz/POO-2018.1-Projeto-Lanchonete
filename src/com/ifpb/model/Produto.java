@@ -1,16 +1,16 @@
-package com.ifpb.Lanchonete.model;
+package com.ifpb.model;
 
 public class Produto {
 
     private int Codigo;
-    private double Preço;
+    private double Preco;
     private String Nome;
     private String Descricao;
     private String Categoria;
 
-    public Produto(int Codigo, double Preço, String Nome, String Descricao, String Categoria){
+    public Produto(int Codigo, double Preco, String Nome, String Descricao, String Categoria){
         this.Codigo = Codigo;
-        this.Preço = Preço;
+        this.Preco = Preco;
         this.Nome = Nome;
         this.Descricao = Descricao;
         this.Categoria = Categoria;
@@ -24,12 +24,12 @@ public class Produto {
         Codigo = codigo;
     }
 
-    public double getPreço() {
-        return Preço;
+    public double getPreco() {
+        return Preco;
     }
 
-    public void setPreço(double preço) {
-        Preço = preço;
+    public void setPreco(double preco) {
+        Preco = preco;
     }
 
     public String getNome() {
