@@ -1,73 +1,63 @@
 package com.ifpb.model;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Objects;
+import java.time.LocalTime;
 
 public class Pedido {
 
-    private Produto Produto;
-    private LocalDate Data;
-    private LocalDateTime Hora;
-    private boolean status;
-    private int Quantidade;
-    private int NPedido;
+    private final Produto produto;
+    private final LocalDate data;
+    private final LocalTime hora;
+    private boolean atendido;
+    private int quantidade;
+    private int numPedido;
 
-    public Pedido(Produto Produto, LocalDate Data, LocalDateTime Hora, int Quantidade, int NPedido){
-        this.Produto = Produto;
-        this.Data = Data;
-        this.Hora = Hora;
-        this.Quantidade = Quantidade;
-        this.status = true;
-        this.NPedido = NPedido;
+    public Pedido(Produto produto, int quantidade, int numPedido) {
+        this.produto = produto;
+        this.data = LocalDate.now();
+        this.hora = LocalTime.now();
+        this.atendido = false;
+        this.quantidade = quantidade;
+        this.numPedido = numPedido;
     }
 
-    public int getQuantidade() {
-        return Quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        Quantidade = quantidade;
+    public Produto getProduto() {
+        return produto;
     }
 
     public LocalDate getData() {
-        return Data;
+        return data;
     }
 
-    public void setData(LocalDate data) {
-        Data = data;
+    public LocalTime getHora() {
+        return hora;
     }
 
-    public LocalDateTime getHora() {
-        return Hora;
+    public boolean isAtendido() {
+        return atendido;
     }
 
-    public void setHora(LocalDateTime hora) {
-        Hora = hora;
+    public void setAtendido(boolean atendido) {
+        this.atendido = atendido;
     }
 
-    public Produto getProduto() { return this.Produto; }
-
-    public void setProduto(Produto Produto) { this.Produto = Produto; }
-
-    public boolean getStatus() { return this.status; }
-
-    public void setStatus(boolean s) { this.status = s; }
-
-    public int getNPedido() { return this.NPedido; }
-
-    public void setNPedido(int codigo) { this.NPedido = codigo; }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pedido)) return false;
-        Pedido pedido = (Pedido) o;
-        return status == pedido.status &&
-                getQuantidade() == pedido.getQuantidade() &&
-                Objects.equals(getProduto(), pedido.getProduto()) &&
-                Objects.equals(getData(), pedido.getData()) &&
-                Objects.equals(getHora(), pedido.getHora());
+    public int getQuantidade() {
+        return quantidade;
     }
 
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public int getNumPedido() {
+        return numPedido;
+    }
+
+    public void setNumPedido(int numPedido) {
+        this.numPedido = numPedido;
+    }
+
+    public double getSubTotal(){
+        return produto.getPreco()*quantidade;
+    }
 }
