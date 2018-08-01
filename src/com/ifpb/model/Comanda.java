@@ -42,7 +42,7 @@ public class Comanda {
 
     //create
     public boolean criaPedido(Pedido pedido){
-        if(buscaCodigo(pedido.getNumPedido())){
+        if(buscaCodigo(pedido.getNumPedido()) == null){
             pedidos.add(pedido);
             return true;
         }
@@ -50,14 +50,18 @@ public class Comanda {
     }
 
     //update
-    public boolean atualizaPedido(Pedido numPedido){
+    public boolean atualizaPedido(Pedido novoPedido){
 
-        if(buscaCodigo(numPedido.getNumPedido())){
-            int posicao = buscarPosicao(numPedido);
-            pedidos.set(posicao, numPedido);
-            return true;
+        Pedido pedidoAnterior = buscaCodigo(novoPedido.getNumPedido());
+
+        if(pedidoAnterior == null){
+            return false;
         }
-        return false;
+
+        int posicaoDeInsercao = buscarPosicao(pedidoAnterior);
+        pedidos.set(posicaoDeInsercao, novoPedido);
+        return true;
+
     }
 
     //delete
@@ -70,9 +74,19 @@ public class Comanda {
         return true;
     }
 
-    private boolean verificaStatus(Pedido pedido){
+    public boolean verificaStatus(Pedido pedido){
         return pedido.isAtendido();
 
+    }
+
+    public double calculaValor(){
+        double soma = 0;
+
+        for(Pedido p : pedidos){
+            soma = soma + p.getSubTotal();
+        }
+
+        return soma;
     }
 
 }
