@@ -2,57 +2,57 @@ package com.ifpb.model;
 
 public class Produto {
 
-    private int Codigo;
-    private double Preco;
-    private String Nome;
-    private String Descricao;
-    private String Categoria;
+    private int codigo;
+    private double preco;
+    private String nome;
+    private String descricao;
+    private String categoria;
 
-    public Produto(int Codigo, double Preco, String Nome, String Descricao, String Categoria){
-        this.Codigo = Codigo;
-        this.Preco = Preco;
-        this.Nome = Nome;
-        this.Descricao = Descricao;
-        this.Categoria = Categoria;
+    public Produto(int codigo, double preco, String nome, String descricao, String categoria) {
+        this.codigo = codigo;
+        this.preco = preco;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.categoria = categoria;
     }
 
     public int getCodigo() {
-        return Codigo;
+        return codigo;
     }
 
     public void setCodigo(int codigo) {
-        Codigo = codigo;
+        this.codigo = codigo;
     }
 
     public double getPreco() {
-        return Preco;
+        return preco;
     }
 
     public void setPreco(double preco) {
-        Preco = preco;
+        this.preco = preco;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     public String getDescricao() {
-        return Descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
-        Descricao = descricao;
+        this.descricao = descricao;
     }
 
     public String getCategoria() {
-        return Categoria;
+        return categoria;
     }
 
     public void setCategoria(String categoria) {
-        Categoria = categoria;
+        this.categoria = categoria;
     }
 }
