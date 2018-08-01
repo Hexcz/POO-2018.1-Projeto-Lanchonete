@@ -4,20 +4,40 @@ import java.time.LocalDate;
 
 public class Funcionario {
 
+    private String Login;
+    private String Senha;
     private String CPF;
     private String Nome;
     private String Email;
-    private int Numero;
+    private String Telefone;
     private LocalDate DataNascimento;
     private String Setor;
 
-    public Funcionario(String CPF, String Nome, String Email, int Numero, LocalDate DataNascimento, String Setor) {
+    public Funcionario(String Login, String Senha, String CPF, String Nome, String Email, String Telefone, LocalDate DataNascimento, String Setor) {
+        this.Login = Login;
+        this.Senha = Senha;
         this.CPF = CPF;
         this.Nome = Nome;
         this.Email = Email;
-        this.Numero = Numero;
+        this.Telefone = Telefone;
         this.DataNascimento = DataNascimento;
         this.Setor = Setor;
+    }
+
+    public String getLogin() {
+        return Login;
+    }
+
+    public void setLogin(String login) {
+        Login = login;
+    }
+
+    public String getSenha() {
+        return Senha;
+    }
+
+    public void setSenha(String senha) {
+        Senha = senha;
     }
 
     public String getCPF() {
@@ -44,12 +64,12 @@ public class Funcionario {
         Email = email;
     }
 
-    public int getNumero() {
-        return Numero;
+    public String getTelefone() {
+        return Telefone;
     }
 
-    public void setNumero(int numero) {
-        Numero = numero;
+    public void setTelefone(String telefone) {
+        Telefone = telefone;
     }
 
     public LocalDate getDataNascimento() {
@@ -67,6 +87,4 @@ public class Funcionario {
     public void setSetor(String setor) {
         Setor = setor;
     }
-
-
 }
