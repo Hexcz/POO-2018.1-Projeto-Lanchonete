@@ -1,87 +1,86 @@
 package com.ifpb.control;
 
-import com.ifpb.Lanchonete.model.Produto;
 import com.ifpb.model.Pedido;
-
-import java.util.Arrays;
+import com.ifpb.model.Produto;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class GerenciaPedido {
 
-    private Produto[] Pedido;
+    private List<Pedido> pedidos = new ArrayList<>();
+    private Pedido novoPedido;
     private int quantidadeProduto;
-    private int quantidade;
 
-    public GerenciaPedido(int quantidadeProduto) {
+    public GerenciaPedido(int quantidadeProduto, Pedido pedido) {
         this.quantidadeProduto = quantidadeProduto;
-        quantidade = 0;
-        Pedido = new Produto[2];
+        this.novoPedido = pedido;
     }
 
-    private boolean isFull(){
-        if(quantidade>Pedido.length){
-            return true;
-        }
-        return false;
+    private int buscarPosicao(Pedido pedido){
+          return pedidos.indexOf(pedido);
     }
 
-    private Produto[] aumentarArray(){
-        return Arrays.copyOfRange(Pedido, 0, quantidade);
-    }
-
-    private int buscarPosicao(Produto pedido){
-        for(int i = 0; i<quantidade; i++){
-            if(Pedido[i].equals(pedido)){
-                return i;
+    private boolean buscaCodigo(int codigo){
+        for(Pedido p : pedidos){
+            if(p.getNPedido() == codigo){
+                return true;
             }
         }
-        return -1;
-    }
-
-    public float calculaSubValor(float valor, int quantidade){
-        return valor*quantidade;
-    }
-
-    public boolean addPedido(Produto pedido){
-        if(isFull()){
-            aumentarArray();
-        }
-        Pedido[quantidade++] = pedido;
-        return true;
-    }
-
-    public Produto findPedido(Produto pedido){
-        int posicao = buscarPosicao(pedido);
-        if(posicao<0){
-            return null;
-        }
-            return pedido;
-    }
-
-    public boolean atualizarPedido(Produto pedido){
-        int posicao = buscarPosicao(pedido);
-
-        if(posicao<0){
-            return false;
-        }
-        Pedido[posicao] = pedido;
         return false;
     }
 
-    public boolean removerPedido(Produto pedido){
-        int posicao = buscarPosicao(pedido);
+    public double calculaSubTotal(){
+        return (novoPedido.getProduto().getPreço())*quantidadeProduto;
+    }
+
+    //read
+    public Pedido verPedido(Produto produto){
+        int codigo = produto.getCodigo();
+
+        for(Pedido p : pedidos){
+            if(codigo == p.getProduto().getCodigo()){
+                return p;
+            }
+        }
+        return null;
+    }
+
+    //create
+    public boolean criaPedido(Pedido pedido){
+         if(buscaCodigo(pedido.getNPedido())){
+             pedidos.add(pedido);
+             return true;
+         }
+         return false;
+    }
+
+    //update
+    public boolean atualizaPedido(Pedido npedido){
+        int posicao = buscarPosicao(npedido);
 
         if(posicao<0){
             return false;
         }
 
-        for(int j = posicao; j<quantidade; j--){
-            Pedido[j] = Pedido[j+1];
-        }
-        quantidade--;
+        pedidos.set(posicao, npedido);
         return true;
     }
 
-    public Produto[] listarPedido(){
-        return Arrays.copyOfRange(Pedido, 0, quantidade);
+    //delete
+    public boolean removePedido(Pedido pedido){
+        int posicao = buscarPosicao(pedido);
+
+        if(posicao<0){ return false; }
+
+        pedidos.remove(posicao);
+        return true;
     }
+
+    private boolean verificaStatus(Pedido pedido){
+        return pedido.getStatus();
+
+    }
+
 }
+

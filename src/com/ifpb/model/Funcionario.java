@@ -1,4 +1,4 @@
-package com.ifpb.Lanchonete.model;
+package com.ifpb.model;
 
 import java.time.LocalDate;
 

@@ -1,87 +1,72 @@
-package com.ifpb.Lanchonete.control;
-import com.ifpb.Lanchonete.model.Funcionario;
+package com.ifpb.control;
+import com.ifpb.model.Funcionario;
+import java.util.List;
+import java.util.ArrayList;
 
-import java.util.Arrays;
+public class GerenciaFuncionario {
 
-public class GerenciaFuncionario <T>{
+    private List<Funcionario> funcionarios = new ArrayList<>();
+    private Funcionario novoFuncionario;
 
-    private T[] funcionarios;
-    int quantidade;
-
-    public GerenciaFuncionario(){
-        funcionarios = (T[]) new Funcionario[2];
-        quantidade = 0;
+    public GerenciaFuncionario(Funcionario funcionario){
+        this.novoFuncionario = funcionario;
     }
 
-    private void aumentarArray(){
-        funcionarios = Arrays.copyOf(funcionarios, funcionarios.length*2);
+    private int buscarIndex(Funcionario funcionario){
+        return funcionarios.indexOf(funcionario);
     }
 
-    private boolean isFull(){
-        if(quantidade > funcionarios.length){
+    private boolean buscarCPF(String CPF){
+        if(novoFuncionario.getCPF() == CPF){
             return true;
         }
-        else{
-            return false;
+        return false;
+    }
+
+    //create
+    public boolean adicionarFuncionario(Funcionario funcionario){
+        if(buscarCPF(funcionario.getCPF())){
+            funcionarios.add(funcionario);
+            return true;
         }
+        return false;
     }
 
-    public boolean adicionarFuncionario(T funcionario){
-        if(isFull()){
-            aumentarArray();
-        }
-        funcionarios[quantidade++] = funcionario;
-        return true;
+    //delete
+    public boolean deletaFuncionario(Funcionario funcionario){
+       int posicao = buscarIndex(funcionario);
+
+       if(posicao<0) { return false; }
+
+       funcionarios.add(funcionario);
+       return true;
     }
 
+    //read
+    public Funcionario buscarFuncionario(Funcionario funcionario){
+        String CPF = funcionario.getCPF();
 
-    public int buscarPosicao(T funcionario){
-        for(int i = 0; i<funcionarios.length; i++){
-            if(funcionarios[i].equals(funcionario)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-
-    public boolean deletaFuncionario(T funcionario){
-           int posicao = buscarPosicao(funcionario);
-           if(posicao<0){
-               return false;
-           }
-           for(int i = posicao; i<quantidade; i--){
-               funcionarios[i] = funcionarios[i+1];
-           }
-           quantidade--;
-           return true;
-    }
-
-    public T buscarFuncionario(T funcionario){
-
-        for(int i = 0; i<funcionarios.length; i++){
-            if(funcionarios[i].equals(funcionario)){
+        for(Funcionario f : funcionarios){
+            if(f.getCPF() == CPF){
                 return funcionario;
             }
         }
 
         return null;
-
     }
 
-    public boolean atualizarFuncionario(T funcionario){
-        int posicao = buscarPosicao(funcionario);
+    //update
+    public boolean atualizarFuncionario(Funcionario funcionario){
+        int posicao = buscarIndex(funcionario);
 
-        if(posicao<0){
-            return false;
-        }
+        if(posicao<0) { return false; }
 
-        funcionarios[posicao] = funcionario;
+        funcionarios.set(posicao, funcionario);
         return true;
     }
 
-    public T[] listarFuncionarios(){
-        return Arrays.copyOfRange(funcionarios, 0, quantidade);
+    public List<Funcionario> listarFuncionarios(){
+        return funcionarios;
     }
 
 }
