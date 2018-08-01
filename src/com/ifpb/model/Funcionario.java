@@ -1,90 +1,107 @@
 package com.ifpb.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Funcionario {
 
-    private String Login;
-    private String Senha;
-    private String CPF;
-    private String Nome;
-    private String Email;
-    private String Telefone;
-    private LocalDate DataNascimento;
-    private String Setor;
+    private String login;
+    private String senha;
+    private String cpf;
+    private String nome;
+    private String email;
+    private String telefone;
+    private LocalDate dataNascimento;
+    private String setor;
 
-    public Funcionario(String Login, String Senha, String CPF, String Nome, String Email, String Telefone, LocalDate DataNascimento, String Setor) {
-        this.Login = Login;
-        this.Senha = Senha;
-        this.CPF = CPF;
-        this.Nome = Nome;
-        this.Email = Email;
-        this.Telefone = Telefone;
-        this.DataNascimento = DataNascimento;
-        this.Setor = Setor;
+    public Funcionario(String login, String senha, String cpf, String nome, String email, String telefone, LocalDate dataNascimento, String setor) {
+        this.login = login;
+        this.senha = senha;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.setor = setor;
     }
 
     public String getLogin() {
-        return Login;
+        return login;
     }
 
     public void setLogin(String login) {
-        Login = login;
+        this.login = login;
     }
 
     public String getSenha() {
-        return Senha;
+        return senha;
     }
 
     public void setSenha(String senha) {
-        Senha = senha;
+        this.senha = senha;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getTelefone() {
-        return Telefone;
+        return telefone;
     }
 
     public void setTelefone(String telefone) {
-        Telefone = telefone;
+        this.telefone = telefone;
     }
 
     public LocalDate getDataNascimento() {
-        return DataNascimento;
+        return dataNascimento;
     }
 
     public void setDataNascimento(LocalDate dataNascimento) {
-        DataNascimento = dataNascimento;
+        this.dataNascimento = dataNascimento;
     }
 
     public String getSetor() {
-        return Setor;
+        return setor;
     }
 
     public void setSetor(String setor) {
-        Setor = setor;
+        this.setor = setor;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Funcionario)) return false;
+        Funcionario that = (Funcionario) o;
+        return Objects.equals(getLogin(), that.getLogin()) &&
+                Objects.equals(getSenha(), that.getSenha()) &&
+                Objects.equals(getCpf(), that.getCpf()) &&
+                Objects.equals(getNome(), that.getNome()) &&
+                Objects.equals(getEmail(), that.getEmail()) &&
+                Objects.equals(getTelefone(), that.getTelefone()) &&
+                Objects.equals(getDataNascimento(), that.getDataNascimento()) &&
+                Objects.equals(getSetor(), that.getSetor());
+    }
+
 }
