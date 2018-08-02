@@ -12,9 +12,9 @@ public class Funcionario {
     private String email;
     private String telefone;
     private LocalDate dataNascimento;
-    private String setor;
+    private Setor setor;
 
-    public Funcionario(String login, String senha, String cpf, String nome, String email, String telefone, LocalDate dataNascimento, String setor) {
+    public Funcionario(String login, String senha, String cpf, String nome, String email, String telefone, LocalDate dataNascimento, Setor setor) {
         this.login = login;
         this.senha = senha;
         this.cpf = cpf;
@@ -81,11 +81,11 @@ public class Funcionario {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getSetor() {
+    public Setor getSetor() {
         return setor;
     }
 
-    public void setSetor(String setor) {
+    public void setSetor(Setor setor) {
         this.setor = setor;
     }
 
@@ -101,7 +101,26 @@ public class Funcionario {
                 Objects.equals(getEmail(), that.getEmail()) &&
                 Objects.equals(getTelefone(), that.getTelefone()) &&
                 Objects.equals(getDataNascimento(), that.getDataNascimento()) &&
-                Objects.equals(getSetor(), that.getSetor());
+                getSetor() == that.getSetor();
     }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getLogin(), getSenha(), getCpf(), getNome(), getEmail(), getTelefone(), getDataNascimento(), getSetor());
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", setor=" + setor +
+                '}';
+    }
 }
