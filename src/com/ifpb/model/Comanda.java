@@ -1,93 +1,63 @@
 package com.ifpb.model;
 
-import com.ifpb.model.Pedido;
-import com.ifpb.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comanda {
+public class Comanda{
 
     private List<Pedido> pedidos = new ArrayList<>();
-    private Pedido novoPedido;
 
-    public Comanda(Pedido novoPedido) {
-        this.novoPedido = novoPedido;
+    public boolean create (Pedido pedido){
+        return pedidos.add(pedido);
     }
 
-    private int buscarPosicao(Pedido pedido){
-        return pedidos.indexOf(pedido);
-    }
-
-    private Pedido buscaCodigo(int codigo){
-        for(Pedido p : pedidos){
-            if(p.getNumPedido() == codigo){
+    public Pedido read (int codPedido){
+        for (Pedido p: pedidos) {
+            if (codPedido == p.getNumPedido()) {
                 return p;
             }
         }
         return null;
     }
 
-    //read
-    public Pedido verPedido(Produto produto){
-        int codigo = produto.getCodigo();
-
-        for(Pedido p : pedidos){
-            if(codigo == p.getProduto().getCodigo()){
-                return p;
+    public boolean update (Pedido pedido){
+        for (int i = 0; i < pedidos.size(); i++){
+            Pedido atualPedido1 = pedidos.get(i);
+            if (atualPedido1.getNumPedido()==pedido.getNumPedido()){
+                if (!atualPedido1.isAtendido()){
+                    pedidos.set(i, pedido);
+                    return true;
+                }else return false;
             }
-        }
-        return null;
-    }
-
-    //create
-    public boolean criaPedido(Pedido pedido){
-        if(buscaCodigo(pedido.getNumPedido()) == null){
-            pedidos.add(pedido);
-            return true;
         }
         return false;
     }
 
-    //update
-    public boolean atualizaPedido(Pedido novoPedido){
-
-        Pedido pedidoAnterior = buscaCodigo(novoPedido.getNumPedido());
-
-        if(pedidoAnterior == null){
-            return false;
+    public boolean delete(Pedido pedido){
+        for (int i = 0; i < pedidos.size(); i++){
+            Pedido atualPedido1 = pedidos.get(i);
+            if (atualPedido1.getNumPedido()==pedido.getNumPedido()){
+                if (!atualPedido1.isAtendido()){
+                    pedidos.remove(pedido);
+                    return true;
+                }else return false;
+            }
         }
-
-        int posicaoDeInsercao = buscarPosicao(pedidoAnterior);
-        pedidos.set(posicaoDeInsercao, novoPedido);
-        return true;
-
+        return false;
     }
 
-    //delete
-    public boolean removePedido(Pedido pedido){
-        int posicao = buscarPosicao(pedido);
-
-        if(posicao<0){ return false; }
-
-        pedidos.remove(posicao);
-        return true;
+    public List<Pedido> list(){
+        return pedidos;
     }
 
-    public boolean verificaStatus(Pedido pedido){
-        return pedido.isAtendido();
-
-    }
-
-    public double calculaValor(){
-        double soma = 0;
-
-        for(Pedido p : pedidos){
-            soma = soma + p.getSubTotal();
+    public double calcTotal(){
+        double total = 0;
+        for (Pedido p: pedidos) {
+            if(p.isAtendido()){
+                total += p.calcSubTotal();
+            }
         }
-
-        return soma;
+        return total;
     }
-
 }
-

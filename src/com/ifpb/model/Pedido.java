@@ -2,10 +2,11 @@ package com.ifpb.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Pedido {
 
-    private final Produto produto;
+    private Produto produto;
     private final LocalDate data;
     private final LocalTime hora;
     private boolean atendido;
@@ -25,6 +26,10 @@ public class Pedido {
         return produto;
     }
 
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
     public LocalDate getData() {
         return data;
     }
@@ -37,8 +42,8 @@ public class Pedido {
         return atendido;
     }
 
-    public void setAtendido(boolean atendido) {
-        this.atendido = atendido;
+    public void setAtendido() {
+        this.atendido = true;
     }
 
     public int getQuantidade() {
@@ -57,7 +62,38 @@ public class Pedido {
         this.numPedido = numPedido;
     }
 
-    public double getSubTotal(){
+    public double calcSubTotal(){
         return produto.getPreco()*quantidade;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pedido)) return false;
+        Pedido pedido = (Pedido) o;
+        return isAtendido() == pedido.isAtendido() &&
+                getQuantidade() == pedido.getQuantidade() &&
+                getNumPedido() == pedido.getNumPedido() &&
+                Objects.equals(getProduto(), pedido.getProduto()) &&
+                Objects.equals(getData(), pedido.getData()) &&
+                Objects.equals(getHora(), pedido.getHora());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getProduto(), getData(), getHora(), isAtendido(), getQuantidade(), getNumPedido());
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "produto=" + produto +
+                ", data=" + data +
+                ", hora=" + hora +
+                ", atendido=" + atendido +
+                ", quantidade=" + quantidade +
+                ", numPedido=" + numPedido +
+                '}';
     }
 }
