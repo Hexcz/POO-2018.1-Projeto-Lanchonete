@@ -15,7 +15,7 @@ public class Comanda{
     private int numeroComanda;
     private boolean comandaAberta;
     private LocalDate data;
-    
+
     public Comanda(int numeroComanda, LocalDate data) {
         this.numeroComanda = numeroComanda;
         this.comandaAberta = true;
