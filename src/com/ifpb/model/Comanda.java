@@ -10,11 +10,12 @@ import java.util.Objects;
 
 public class Comanda{
 
+    //lista para armazenar varios pedidos
     private List<Pedido> pedidos = new ArrayList<>();
     private int numeroComanda;
     private boolean comandaAberta;
     private LocalDate data;
-
+    
     public Comanda(int numeroComanda, LocalDate data) {
         this.numeroComanda = numeroComanda;
         this.comandaAberta = true;
@@ -41,28 +42,28 @@ public class Comanda{
         return pedidos.indexOf(pedido);
     }
 
-    private Pedido buscaCodigo(int codigo){
+    //procura na lista 'pedidos' o pedido com o numero do pedido
+    private Pedido buscaCodigo(int numPedido){
         for(Pedido p : pedidos){
-            if(p.getNumPedido() == codigo){
+            if(p.getNumPedido() == numPedido){
                 return p;
             }
         }
         return null;
     }
 
-    //read
-    public Pedido verPedido(Produto produto){
-        int codigo = produto.getCodigo();
+    //retorna o pedido a partir de um produto a partir do codigo do produto
+    public Pedido verPedido(int codigoPedido){
 
         for(Pedido p : pedidos){
-            if(codigo == p.getProduto().getCodigo()){
+            if(codigoPedido == p.getProduto().getCodigo()){
                 return p;
             }
         }
         return null;
     }
 
-    //create
+    //cria um novo pedido e o adiciona ao array de pedidos, a comanda
     public boolean criaPedido(Pedido pedido){
         if(buscaCodigo(pedido.getNumPedido()) == null){
             pedidos.add(pedido);
@@ -71,7 +72,7 @@ public class Comanda{
         return false;
     }
 
-    //update
+    //atualizaçao de pedido
     public boolean atualizaPedido(Pedido novoPedido){
 
         Pedido pedidoAnterior = buscaCodigo(novoPedido.getNumPedido());
@@ -86,7 +87,7 @@ public class Comanda{
 
     }
 
-    //delete
+    //deleta um pedido da lista
     public boolean removePedido(Pedido pedido){
         int posicao = buscarPosicao(pedido);
 
@@ -96,6 +97,7 @@ public class Comanda{
         return true;
     }
 
+    //encerra um pedido, modificando o seu status
     public boolean fecharStatus(Pedido pedido){
         if(!verificaStatus(pedido)){
             pedido.setAtendido(true);
@@ -104,11 +106,13 @@ public class Comanda{
         return false;
     }
 
+    //retorna o status (aberto ou fechado) do pedido
     public boolean verificaStatus(Pedido pedido){
         return pedido.isAtendido();
 
     }
 
+    //calcula o valor total da comanda
     public double calculaValor(){
         double soma = 0;
 
@@ -120,6 +124,7 @@ public class Comanda{
 
     }
 
+    //reescrita do metodo equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -131,6 +136,7 @@ public class Comanda{
     }
 
 
+    //implementaçao do metodo compareTo
     public int compareTo(LocalDate começo, LocalDate fim) {
         return fim.getDayOfMonth()-começo.getDayOfMonth();
     }
