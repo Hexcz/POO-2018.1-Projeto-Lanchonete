@@ -11,10 +11,8 @@ public class GerenciaComandas {
     private List<Comanda> comandas = new ArrayList<>();
 
     private boolean isPresente(Comanda comanda){
-        int numero = comanda.getNumeroComanda();
-
         for(Comanda c : comandas){
-            if(c.getNumeroComanda() == numero){
+            if(c.equals(comanda)){
                 return true;
             }
         }
@@ -46,7 +44,7 @@ public class GerenciaComandas {
         return false;
     }
 
-    public List<Pedido> listarPedidos(int numComanda){
+    public List<Pedido> listRequests(int numComanda){
         Comanda c = buscarComanda(numComanda);
         List<Pedido> listaPedidos  = c.list();
         return listaPedidos;
