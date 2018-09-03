@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * @author David
+ * @author Hexcz
  * @author Lethícia
  * @version 1.0
  * */
@@ -129,16 +129,15 @@ public class Funcionario implements autenticarFuncionario{
 
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "username='" + username + '\'' +
-                ", senha='" + senha + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                ", setor=" + setor +
-                '}';
+        return ":.:.:.:Funcionario:.:.:.:" +
+                "\nUsername: " + username + '\'' +
+                "\nSenha: " + senha + '\'' +
+                "\nCPF: " + cpf + '\'' +
+                "\nNome: " + nome + '\'' +
+                "\nE-mail: " + email + '\'' +
+                "\nTelefone: " + telefone + '\'' +
+                "\nData de nascimento: " + dataNascimento +
+                "\nSetor: " + setor;
     }
 
 

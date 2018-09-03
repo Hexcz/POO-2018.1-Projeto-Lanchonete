@@ -56,7 +56,6 @@ public class GerenciaFuncionario {
      * @return true - se foi possível criar o funcionário.
      * @return false - se não foi possível criar o funcionário.
      * */
-
     public boolean create(Funcionario funcionario){
         if(searchIndex(funcionario)<0 && searchUsername(funcionario.getUsername())){
             funcionarios.add(funcionario);
