@@ -67,16 +67,16 @@ public class CadastroFuncionario {
     }
 
     /**
-     * Esta função tem por objetivo criar um novo funcionário na lista.
-     * @param cpf - recebe um parâmetro do tipo String.
+     * Esta função tem por objetivo buscar um funcionário na lista.
+     * @param username - recebe um parâmetro do tipo String.
      * @return f - retorna o funcionário cujo cpf corresponde ao informado.
      * @return null - se não houver funcionário com o cpf informado.
      * */
 
-    public Funcionario read(String cpf){
+    public Funcionario read(String username){
 
         for(Funcionario f : funcionarios){
-            if(f.getCpf() == cpf){
+            if(f.getUsername().equals(username)){
                 return f;
             }
         }

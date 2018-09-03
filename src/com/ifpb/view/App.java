@@ -8,9 +8,8 @@ import java.time.LocalDate;
 
 public class App {
     public static void main(String args[]){
+        CadastroFuncionario cadastro = new CadastroFuncionario();
         Scanner ler = new Scanner(System.in);
-        GerenciaFuncionario cadastro = new GerenciaFuncionario();
-        Funcionario funcionario = null;
         while(true){
             System.out.println("App Lanchonete v1.0");
             System.out.println("------------------------------------");
@@ -21,18 +20,19 @@ public class App {
             System.out.println("------------------------------------");
             if(opcao == 1){
                 if(cadastro.list().size() == 0){
-                    System.out.println("Não é possível fazer login. Não há usuário cadastrado.");
+                    System.out.println("Não é possível fazer login: não há usuários cadastrados. Por favor, realize o cadastro de um funcionário.");
                 }
                 else{
                     System.out.println("Login: ");
                     String login = ler.next();
                     System.out.println("Senha: ");
                     String senha = ler.next();
-                    if (funcionario.verifyLogin(login, senha)){
+                    Funcionario userLogin = cadastro.read(login);
+                    if(userLogin != null && userLogin.verifyLogin(login, senha)){
                         System.out.println("Login bem-sucedido!");
                     }
                     else{
-                        System.out.println("Usuário ou senha incorretos.");
+                        System.out.println("Login ou senha inválidos...");
                     }
                 }
                 System.out.println("------------------------------------");
@@ -79,9 +79,9 @@ public class App {
                            setor = ler.nextInt();
                    }
                }
-               funcionario = new Funcionario(login, senha, cpf, nome, email, telefone, LocalDate.of(ano, mes, dia), s);
-               cadastro.create(funcionario);
-
+               Funcionario funcionario1 = new Funcionario(login, senha, cpf, nome, email, telefone, LocalDate.of(ano, mes, dia), s);
+               cadastro.create(funcionario1);
+               System.out.println("Usuário cadastrado com sucesso!");
             }
         }
     }

@@ -7,6 +7,7 @@ public interface autenticarFuncionario {
      * Conta com três funções.
      * */
 
+
     boolean verifyUsername(String username);
     boolean verifyPassword(String senha);
     boolean verifyLogin(String username, String senha);
