@@ -6,9 +6,33 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Esta classe controla as entradas e saídas de dados referentes às comandas do sistema da lanchonete.
+ * @author Hezcz
+ * @author lethiciacl
+ * @version 1.0
+ * @since 1.0
+ * */
+
 public class GerenciaComandas {
 
-    private List<Comanda> comandas = new ArrayList<>();
+    private List<Comanda> comandas;
+
+    /**
+     * CONSTRUTORES.
+     * */
+
+    public GerenciaComandas(){
+        comandas = new ArrayList<>();
+    }
+
+
+    /**
+     * Esta função tem por objetivo verificar se uma Comanda está presente na lista de comandas do sistema.
+     * @param comanda - a função recebe como parâmetro um objeto do tipo Comanda.
+     * @return true - se a comanda está contida na lista.
+     * @return false - se a comanda não está contida na lista.
+     * */
 
     private boolean isPresente(Comanda comanda){
         for(Comanda c : comandas){
@@ -19,7 +43,14 @@ public class GerenciaComandas {
         return false;
     }
 
-    private Comanda buscarComanda(int numComanda){
+    /**
+     * Esta função tem por objetivo encontrar uma comanda na lista com base no seu número.
+     * @param numComanda - a função recebe como parâmetro um inteiro que corresponde ao identificador da comanda.
+     * @return c - caso encontre a comanda cujo numero corresponde a algum presente na lista.
+     * @return null - caso não encontre nenhuma comanda correspondente.
+     * */
+
+    private Comanda findComanda(int numComanda){
         for(Comanda c : comandas){
             if(c.getNumeroComanda() == numComanda){
                 return c;
@@ -28,7 +59,14 @@ public class GerenciaComandas {
         return null;
     }
 
-    public boolean abrirComanda(Comanda novaComanda){
+    /**
+     * Esta função tem por objetivo criar uma nova comanda.
+     * @param novaComanda - recebe um objeto do tipo Comanda.
+     * @return true - se a adição foi feita com sucesso.
+     * @return false - se a adição não foi feita com sucesso.
+     * */
+
+    public boolean create(Comanda novaComanda){
         if(!isPresente(novaComanda)){
             comandas.add(novaComanda);
             return true;
@@ -36,7 +74,14 @@ public class GerenciaComandas {
         return false;
     }
 
-    public boolean fecharComanda(Comanda comanda){
+    /**
+     * Esta função tem por objetivo fechar uma comanda em aberto.
+     * @param comanda - recebe a comanda que se deseja fechar.
+     * @return true - se a exclusão foi feita com sucesso.
+     * @return false - se a exclusão não foi feita com sucesso.
+     * */
+
+    public boolean closeComanda(Comanda comanda){
         if(isPresente(comanda)){
             comanda.setComandaAberta(false);
             return true;
@@ -44,13 +89,26 @@ public class GerenciaComandas {
         return false;
     }
 
-    public List<Pedido> listRequests(int numComanda){
-        Comanda c = buscarComanda(numComanda);
+    /**
+     * Esta função tem por objetivo listar todas as comandas armazenadas na lista de comandas.
+     * @param numComanda - recebe um inteiro que corresponde ao identificador da comanda.
+     * @return list - retorna uma lista de Pedidos.
+     * */
+
+    public List<Pedido> listPedidos(int numComanda){
+        Comanda c = findComanda(numComanda);
         List<Pedido> listaPedidos  = c.list();
         return listaPedidos;
     }
 
-    public List<Comanda> between(LocalDate dataInicio, LocalDate dataFim){
+    /**
+     * Esta função tem por objetivo retornar uma lista de Comandas de um dado intervalo de tempo.
+     * @param dataInicio - recebe um LocalDate que indica a data mais antiga que a comanda deve ter para ser selecionada.
+     * @param dataFim - recebe um LocalDate que indica a data mais recente que a comanda deve ter para ser selecionada.
+     * @return list - retorna uma lista de Comandas.
+     * */
+
+    public List<Comanda> betweenDates(LocalDate dataInicio, LocalDate dataFim){
         List<Comanda> tempoCmd = new ArrayList<>();
 
         for(Comanda comanda : comandas){
