@@ -35,6 +35,22 @@ public class GerenciaFuncionario {
     }
 
     /**
+     * Esta função tem por objetivo verificar se um username já foi cadastrado anteriormente.
+     * @param username - recebe um parâmetro do tipo String que corresponde ao nome de usuário.
+     * @return true - se o username já existir na lista.
+     * @return false - se o username não existir na lista.
+     * */
+
+    private boolean searchUsername(String username){
+        for(Funcionario f : funcionarios){
+            if(f.getUsername().equals(username)){
+                return false;
+            }
+        }
+                return true;
+    }
+
+    /**
      * Esta função tem por objetivo criar um novo funcionário na lista.
      * @param funcionario - recebe um parâmetro do tipo Funcionário.
      * @return true - se foi possível criar o funcionário.
@@ -42,7 +58,7 @@ public class GerenciaFuncionario {
      * */
 
     public boolean create(Funcionario funcionario){
-        if(searchIndex(funcionario)<0){
+        if(searchIndex(funcionario)<0 && searchUsername(funcionario.getUsername())){
             funcionarios.add(funcionario);
             return true;
         }
