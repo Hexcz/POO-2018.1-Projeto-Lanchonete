@@ -98,12 +98,11 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" +
-                "codigo=" + codigo +
-                ", preco=" + preco +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", categoria=" + categoria +
-                '}';
+        return ":.:.:.:.:Produto:.:.:.:.:" +
+                "\ncodigo: " + codigo +
+                "\npreco: " + preco +
+                "\nnome: " + nome + '\'' +
+                "\ndescricao: " + descricao + '\'' +
+                "categoria: " + categoria;
     }
 }
