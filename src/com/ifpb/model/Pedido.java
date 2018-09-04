@@ -13,6 +13,10 @@ public class Pedido {
     private int quantidade;
     private int numPedido;
 
+    /**
+     * CONSTRUTORES.
+     * */
+
     public Pedido(Produto produto, int quantidade, int numPedido) {
         this.produto = produto;
         this.data = LocalDate.now();
@@ -21,6 +25,10 @@ public class Pedido {
         this.quantidade = quantidade;
         this.numPedido = numPedido;
     }
+
+    /**
+     * GETTERS AND SETTERS.
+     * */
 
     public Produto getProduto() {
         return produto;
@@ -66,6 +74,10 @@ public class Pedido {
         return produto.getPreco()*quantidade;
     }
 
+    /**
+     * MÉTODOS SOBRESCRITOS.
+     * */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,13 +99,12 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" +
-                "produto=" + produto +
-                ", data=" + data +
-                ", hora=" + hora +
-                ", atendido=" + atendido +
-                ", quantidade=" + quantidade +
-                ", numPedido=" + numPedido +
-                '}';
+        return ":.:.:.:.:Pedido:.:.:.:.:" +
+                "\nproduto: " + produto +
+                "\ndata: " + data +
+                "\nhora: " + hora +
+                "\natendido: " + atendido +
+                "\nquantidade: " + quantidade +
+                "\nnumPedido: " + numPedido;
     }
 }
