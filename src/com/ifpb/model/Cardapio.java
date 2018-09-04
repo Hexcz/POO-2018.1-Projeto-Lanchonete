@@ -54,7 +54,7 @@ public class Cardapio {
 
     public Produto read(int codigo){
         for (Produto p : produtos) {
-            if (codigo == p.getCodigo()) {
+            if (p.getCodigo() == codigo) {
                 return p;
             }
         }

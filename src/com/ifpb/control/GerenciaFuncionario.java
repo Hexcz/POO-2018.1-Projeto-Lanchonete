@@ -41,13 +41,13 @@ public class GerenciaFuncionario {
      * @return false - se o username não existir na lista.
      * */
 
-    private boolean searchUsername(String username){
+    public boolean searchUsername(String username){
         for(Funcionario f : funcionarios){
             if(f.getUsername().equals(username)){
-                return false;
+                return true;
             }
         }
-                return true;
+                return false;
     }
 
     /**
@@ -57,7 +57,7 @@ public class GerenciaFuncionario {
      * @return false - se não foi possível criar o funcionário.
      * */
     public boolean create(Funcionario funcionario){
-        if(searchIndex(funcionario)<0 && searchUsername(funcionario.getUsername())){
+        if(searchIndex(funcionario)<0){
             funcionarios.add(funcionario);
             return true;
         }
