@@ -20,6 +20,10 @@ public class Funcionario implements autenticarFuncionario{
     private LocalDate dataNascimento;
     private Setor setor;
 
+    /**
+     * CONSTRUTORES.
+     * */
+
     public Funcionario(String username, String senha, String cpf, String nome, String email, String telefone, LocalDate dataNascimento, Setor setor) {
         this.username = username;
         this.senha = senha;
@@ -30,6 +34,10 @@ public class Funcionario implements autenticarFuncionario{
         this.dataNascimento = dataNascimento;
         this.setor = setor;
     }
+
+    /**
+     * GETTERS AND SETTERS.
+     * */
 
     public String getUsername() {
         return username;
@@ -94,6 +102,10 @@ public class Funcionario implements autenticarFuncionario{
     public void setSetor(Setor setor) {
         this.setor = setor;
     }
+
+    /**
+     * MÉTODOS SOBRESCRITOS.
+     * */
 
     @Override
     public boolean equals(Object o) {
