@@ -1,5 +1,6 @@
 package com.ifpb.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -9,7 +10,7 @@ import java.util.Objects;
  * @version 1.0
  * */
 
-public class Funcionario implements autenticarFuncionario{
+public class Funcionario implements autenticarFuncionario, Serializable {
 
     private String username;
     private String senha;
@@ -33,6 +34,14 @@ public class Funcionario implements autenticarFuncionario{
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.setor = setor;
+    }
+
+    public Funcionario(){
+
+    }
+
+    public Funcionario(String username){
+        this.username = username;
     }
 
     /**
