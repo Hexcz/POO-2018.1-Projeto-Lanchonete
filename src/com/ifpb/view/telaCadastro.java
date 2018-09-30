@@ -1,25 +1,41 @@
 package com.ifpb.view;
 
+import com.ifpb.control.FuncionarioDao;
+import com.ifpb.control.FuncionarioDaoImp;
+import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class telaCadastro extends JFrame {
     private JPanel contentPane;
-    private JFormattedTextField cpf;
+    private JFormattedTextField cpffrmfield;
     private JTextField textField1;
     private JTextField textField2;
     private JFormattedTextField datanasc;
     private JFormattedTextField numTel;
     private JComboBox comboBox1;
     private JButton salvarButton;
+    private JTextField textField3;
+    private JPasswordField passwordField1;
     private JButton buttonOK;
+    private FuncionarioDao daoFunc;
 
     public telaCadastro() {
+
+        try{
+            daoFunc = new FuncionarioDaoImp();
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Falha ao abrir o arquivo", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
         setContentPane(contentPane);
         setTitle("Cadastro de Usuário");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -28,6 +44,31 @@ public class telaCadastro extends JFrame {
         salvarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String nome = textField1.getText();
+                String username = textField3.getText();
+                String senha = new String(passwordField1.getPassword());
+                Setor setor = (Setor) comboBox1.getSelectedItem();
+
+                String cpf = cpffrmfield.getText();
+                String telefone = numTel.getText();
+                String email = textField2.getText();
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                LocalDate nascimento = LocalDate.parse(datanasc.getText(),formatter);
+
+                Funcionario funcionario =  new Funcionario(username, senha, cpf, nome, email, telefone, nascimento, setor);
+
+                try {
+                    if (daoFunc.salvar(funcionario)) {
+                        JOptionPane.showMessageDialog(null, "Salvo!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Usuário em uso.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }catch(IOException | ClassNotFoundException e1) {
+                    JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }
+
                 telaLogin telaLogin = new telaLogin();
                 telaLogin.pack();
                 telaLogin.setVisible(true);
@@ -56,11 +97,11 @@ public class telaCadastro extends JFrame {
             System.out.println(ex.getMessage());
         }
 
-        cpf = new JFormattedTextField();
+        cpffrmfield = new JFormattedTextField();
         datanasc = new JFormattedTextField();
         numTel = new JFormattedTextField();
         if(formatterCPF != null && formatterData != null && formatterTel!=null){
-            formatterCPF.install(cpf);
+            formatterCPF.install(cpffrmfield);
             formatterData.install(datanasc);
             formatterTel.install(numTel);
         }
