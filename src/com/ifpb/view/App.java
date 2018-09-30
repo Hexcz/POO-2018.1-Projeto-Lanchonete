@@ -9,7 +9,7 @@ import com.ifpb.model.*;
 import java.time.LocalDate;
 
 public class App {
-    public static void main(String args[]){
+    /*public static void main(String args[]){
         GerenciaFuncionario cadastro = new GerenciaFuncionario();
         Cardapio cardapio = new Cardapio();
         Scanner ler = new Scanner(System.in);
@@ -261,5 +261,5 @@ public class App {
                 System.exit(0);
             }
         }
-    }
+    }*/
 }
