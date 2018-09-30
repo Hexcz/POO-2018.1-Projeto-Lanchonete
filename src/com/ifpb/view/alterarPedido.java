@@ -2,7 +2,7 @@ package com.ifpb.view;
 
 import javax.swing.*;
 
-public class alterarPedido extends JDialog {
+public class alterarPedido extends JFrame {
     private JPanel contentPane;
     private JComboBox comboBox1;
     private JButton modificarButton;
@@ -12,7 +12,7 @@ public class alterarPedido extends JDialog {
 
     public alterarPedido() {
         setContentPane(contentPane);
-        setModal(true);
+        setTitle("Fazer pedido");
         getRootPane().setDefaultButton(buttonOK);
     }
 
