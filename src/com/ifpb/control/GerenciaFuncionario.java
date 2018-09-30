@@ -1,7 +1,10 @@
 package com.ifpb.control;
 import com.ifpb.model.Funcionario;
+
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Esta classe controla a entrada e saída de informações referentes ao cadastro de um funcionário.
@@ -13,25 +16,14 @@ import java.util.ArrayList;
 
 public class GerenciaFuncionario {
 
-    private List<Funcionario> funcionarios;
+    private Set<Funcionario> funcionarios;
 
 
     /**
      * CONSTRUTORES.
      * */
     public GerenciaFuncionario(){
-        funcionarios = new ArrayList<>();
-    }
-
-    /**
-     * Esta função tem por objetivo procurar uma posição na lista de funcionários.
-     * @param funcionario - recebe um parâmetro do tipo Funcionario.
-     * @return int - retorna um inteiro que corresponde à posição na lista.
-     * Se o valor do retorno for "-1", significa que o funcionário não existe na lista.
-     * */
-
-    private int searchIndex(Funcionario funcionario){
-        return funcionarios.indexOf(funcionario);
+        funcionarios = new HashSet<>();
     }
 
     /**
@@ -51,17 +43,13 @@ public class GerenciaFuncionario {
     }
 
     /**
-     * Esta função tem por objetivo criar um novo funcionário na lista.
+     * Esta função tem por objetivo criar um novo funcionário no conjunto.
      * @param funcionario - recebe um parâmetro do tipo Funcionário.
      * @return true - se foi possível criar o funcionário.
      * @return false - se não foi possível criar o funcionário.
      * */
     public boolean create(Funcionario funcionario){
-        if(searchIndex(funcionario)<0){
-            funcionarios.add(funcionario);
-            return true;
-        }
-        return false;
+       return funcionarios.add(funcionario);
     }
 
 
@@ -73,12 +61,7 @@ public class GerenciaFuncionario {
      * */
 
     public boolean delete(Funcionario funcionario){
-        if(funcionarios.indexOf(funcionario)<0) {
-            return false;
-        }
-
-        funcionarios.remove(funcionario);
-        return true;
+        return funcionarios.remove(funcionario);
     }
 
     /**
@@ -109,8 +92,8 @@ public class GerenciaFuncionario {
     public boolean update(Funcionario funcionario){
         for(Funcionario f : funcionarios){
             if(f.getCpf() == funcionario.getCpf()){
-                funcionarios.set(funcionarios.indexOf(f), funcionario);
-                return true;
+                funcionarios.remove(f);
+                return funcionarios.add(funcionario);
             }
         }
         return false;
@@ -122,7 +105,7 @@ public class GerenciaFuncionario {
      * @return List - retorna uma lista de funcionários.
      * */
 
-    public List<Funcionario> list(){
+    public Set<Funcionario> list(){
         return funcionarios;
     }
 
