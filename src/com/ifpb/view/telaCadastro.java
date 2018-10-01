@@ -1,7 +1,7 @@
 package com.ifpb.view;
 
 import com.ifpb.control.FuncionarioDao;
-import com.ifpb.control.FuncionarioDaoImp;
+import com.ifpb.control.FuncionarioImpDao;
 import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
 
@@ -31,7 +31,7 @@ public class telaCadastro extends JFrame {
     public telaCadastro() {
 
         try{
-            daoFunc = new FuncionarioDaoImp();
+            daoFunc = new FuncionarioImpDao();
         }catch(IOException ex){
             JOptionPane.showMessageDialog(null, "Falha ao abrir o arquivo", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
         }
