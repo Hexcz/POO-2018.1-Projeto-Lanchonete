@@ -31,7 +31,7 @@ public class FuncionarioImpDao implements FuncionarioDao {
         }
     }
 
-    private void attArchive(Set<Funcionario> f) throws IOException{
+    private void attArchive(Set<Funcionario> f) throws IOException, FileNotFoundException{
         try(ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream(file)
         )){
