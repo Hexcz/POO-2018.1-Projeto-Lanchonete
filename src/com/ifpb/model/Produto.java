@@ -30,6 +30,10 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    public Produto(int codigo){
+        this.codigo = codigo;
+    }
+
     /**
      * GETTERS AND SETTERS.
      * */
