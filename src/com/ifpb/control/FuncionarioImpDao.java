@@ -7,11 +7,11 @@ import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FuncionarioDaoImp implements FuncionarioDao {
+public class FuncionarioImpDao implements FuncionarioDao {
 
     private File file;
 
-    public FuncionarioDaoImp() throws IOException{
+    public FuncionarioImpDao() throws IOException{
         file = new File("Funcionarios");
 
         if(!file.exists()){
