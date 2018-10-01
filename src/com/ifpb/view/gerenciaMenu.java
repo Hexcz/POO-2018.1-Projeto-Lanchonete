@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 
-public class GerenciaMenu extends JFrame {
+public class gerenciaMenu extends JFrame {
     private JPanel contentPane;
     private JTextField textField1;
     private JButton buscarButton;
@@ -18,7 +18,7 @@ public class GerenciaMenu extends JFrame {
     private JButton editarButton;
     private JButton buttonOK;
 
-    public GerenciaMenu() {
+    public gerenciaMenu() {
         setContentPane(contentPane);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getRootPane().setDefaultButton(buttonOK);
@@ -53,7 +53,7 @@ public class GerenciaMenu extends JFrame {
     }
 
     public static void main(String[] args) {
-        GerenciaMenu dialog = new GerenciaMenu();
+        gerenciaMenu dialog = new gerenciaMenu();
         dialog.pack();
         dialog.setVisible(true);
     }
