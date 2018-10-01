@@ -1,7 +1,9 @@
 package com.ifpb.model;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * @author David
@@ -12,14 +14,14 @@ import java.util.ArrayList;
 
 public class Cardapio {
 
-    private List<Produto> produtos;
+    private Set<Produto> produtos;
 
     /**
      * CONSTRUTORES.
      * */
 
     public Cardapio(){
-        produtos = new ArrayList<>();
+        produtos = new HashSet<>();
     }
 
     /**
@@ -27,7 +29,7 @@ public class Cardapio {
      * @return List - esta função retorna uma lista de objetos do tipo Produto.
      * */
 
-    public List<Produto> list(){
+    public Set<Produto> list(){
         return produtos;
     }
 
@@ -38,12 +40,7 @@ public class Cardapio {
      * */
 
     public boolean create(Produto produto){
-
-        if(produtos.indexOf(produto)<0){
-            return produtos.add(produto);
-        }
-
-        return false;
+        return produtos.add(produto);
     }
 
     /**
@@ -70,8 +67,8 @@ public class Cardapio {
     public boolean update(Produto produto){
         for(Produto p : produtos){
             if(p.getCodigo() == produto.getCodigo()){
-                produtos.set(produtos.indexOf(p), produto);
-                return true;
+                produtos.remove(p);
+                return produtos.add(produto);
             }
         }
                 return false;
@@ -84,11 +81,6 @@ public class Cardapio {
      * */
 
     public boolean delete(Produto produto){
-
-        if(produtos.indexOf(produto)<0){
-            return false;
-        }else {
-            return produtos.remove(produto);
-        }
+        return produtos.remove(produto);
     }
 }
