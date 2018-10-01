@@ -3,7 +3,9 @@ package com.ifpb.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Esta classe tem por objetivo modelar a entidade comanda do sistema da Lanchonete.
@@ -15,7 +17,7 @@ import java.util.List;
 
 public class Comanda{
 
-    private List<Pedido> comanda;
+    private Set<Pedido> comanda;
     private int numeroComanda;
     private boolean comandaAberta;
     private LocalDate data;
@@ -26,7 +28,7 @@ public class Comanda{
      * */
 
     public Comanda(int numeroComanda) {
-        comanda = new ArrayList<>();
+        comanda = new HashSet<>();
         this.numeroComanda = numeroComanda;
         this.comandaAberta = true;
         this.data = data.now();
@@ -90,8 +92,8 @@ public class Comanda{
         for(Pedido p : comanda){
             if(p.getNumPedido() == pedido.getNumPedido()){
                 if(!pedido.isAtendido()){
-                    comanda.set(comanda.indexOf(p), pedido);
-                    return true;
+                    comanda.remove(p);
+                    return comanda.add(pedido);
                 }
             }
         }
@@ -109,8 +111,7 @@ public class Comanda{
         for(Pedido p : comanda){
             if(p.getNumPedido() == pedido.getNumPedido()){
                 if(!p.isAtendido()){
-                    comanda.remove(pedido);
-                    return true;
+                    return comanda.remove(p);
                 }
             }
         }
@@ -122,7 +123,7 @@ public class Comanda{
      * @return list - retorna uma lista de Pedidos.
      * */
 
-    public List<Pedido> list(){
+    public Set<Pedido> list(){
         return comanda;
     }
 
