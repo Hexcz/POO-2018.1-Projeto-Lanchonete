@@ -54,7 +54,7 @@ public class FuncionarioImpDao implements FuncionarioDao {
     public boolean atualizar(Funcionario funcionario) throws IOException, ClassNotFoundException {
         Set<Funcionario> funcionarios = getFuncionarios();
 
-        Funcionario func = new Funcionario(funcionario.getUsername());
+        Funcionario func = buscarPorUsername(funcionario.getUsername());
 
         if(funcionarios.remove(func)){
             funcionarios.add(funcionario);
@@ -69,7 +69,7 @@ public class FuncionarioImpDao implements FuncionarioDao {
     public boolean deletarPorUsername(String username) throws IOException, ClassNotFoundException{
         Set<Funcionario> funcionarios = getFuncionarios();
 
-        Funcionario func = new Funcionario(username);
+        Funcionario func = buscarPorUsername(username);
         if(funcionarios.remove(func)){
             attArchive(funcionarios);
             return true;
