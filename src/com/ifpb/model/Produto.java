@@ -12,25 +12,23 @@ import java.util.Objects;
 
 public class Produto {
 
-    private int codigo;
+    private String codigo;
     private double preco;
     private String nome;
     private String descricao;
-    private CategoriaProduto categoria;
 
     /**
      * CONSTRUTORES.
      * */
 
-    public Produto(int codigo, double preco, String nome, String descricao, CategoriaProduto categoria) {
+    public Produto(String codigo, double preco, String nome, String descricao) {
         this.codigo = codigo;
         this.preco = preco;
         this.nome = nome;
         this.descricao = descricao;
-        this.categoria = categoria;
     }
 
-    public Produto(int codigo){
+    public Produto(String codigo){
         this.codigo = codigo;
     }
 
@@ -38,11 +36,11 @@ public class Produto {
      * GETTERS AND SETTERS.
      * */
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -70,35 +68,26 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public CategoriaProduto getCategoria() {
-        return categoria;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Produto)) return false;
+
+        Produto produto = (Produto) o;
+
+        return getCodigo().equals(produto.getCodigo());
     }
 
-    public void setCategoria(CategoriaProduto categoria) {
-        this.categoria = categoria;
+    @Override
+    public int hashCode() {
+        return getCodigo().hashCode();
     }
 
     /**
      * MÉTODOS SOBRESCRITOS.
      * */
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Produto)) return false;
-        Produto produto = (Produto) o;
-        return getCodigo() == produto.getCodigo() &&
-                Double.compare(produto.getPreco(), getPreco()) == 0 &&
-                Objects.equals(getNome(), produto.getNome()) &&
-                Objects.equals(getDescricao(), produto.getDescricao()) &&
-                getCategoria() == produto.getCategoria();
-    }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(getCodigo(), getPreco(), getNome(), getDescricao(), getCategoria());
-    }
 
     @Override
     public String toString() {
@@ -106,7 +95,6 @@ public class Produto {
                 "\ncodigo: " + codigo +
                 "\npreco: " + preco +
                 "\nnome: " + nome + '\'' +
-                "\ndescricao: " + descricao + '\'' +
-                "categoria: " + categoria;
+                "\ndescricao: " + descricao + '\'';
     }
 }

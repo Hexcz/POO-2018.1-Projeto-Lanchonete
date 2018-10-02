@@ -45,13 +45,13 @@ public class Cardapio {
 
     /**
      * Esta função tem por objetivo ler as informações de um produto.
-     * @param codigo - recebe um parâmetro do tipo inteiro que identifica o produto que será lido.
+     * @param codigo - recebe um parâmetro do tipo String que identifica o produto que será lido.
      * @return Produto - retorna um objeto do tipo Produto que corresponde ao código informado.
      * */
 
-    public Produto read(int codigo){
+    public Produto read(String codigo){
         for (Produto p : produtos) {
-            if (p.getCodigo() == codigo) {
+            if (p.getCodigo().equals(codigo)) {
                 return p;
             }
         }
@@ -66,7 +66,7 @@ public class Cardapio {
 
     public boolean update(Produto produto){
         for(Produto p : produtos){
-            if(p.getCodigo() == produto.getCodigo()){
+            if(p.getCodigo().equals(produto.getCodigo())){
                 produtos.remove(p);
                 return produtos.add(produto);
             }

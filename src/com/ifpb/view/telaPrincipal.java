@@ -50,5 +50,20 @@ public class telaPrincipal extends JFrame {
             }
         });
 
+        cozinhaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        mesasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
     }
 }
