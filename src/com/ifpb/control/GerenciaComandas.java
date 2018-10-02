@@ -4,7 +4,9 @@ import com.ifpb.model.Comanda;
 import com.ifpb.model.Pedido;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Esta classe controla as entradas e saídas de dados referentes às comandas do sistema da lanchonete.
@@ -16,31 +18,14 @@ import java.util.List;
 
 public class GerenciaComandas {
 
-    private List<Comanda> comandas;
+    private Set<Comanda> comandas;
 
     /**
      * CONSTRUTORES.
      * */
 
     public GerenciaComandas(){
-        comandas = new ArrayList<>();
-    }
-
-
-    /**
-     * Esta função tem por objetivo verificar se uma Comanda está presente na lista de comandas do sistema.
-     * @param comanda - a função recebe como parâmetro um objeto do tipo Comanda.
-     * @return true - se a comanda está contida na lista.
-     * @return false - se a comanda não está contida na lista.
-     * */
-
-    private boolean isPresente(Comanda comanda){
-        for(Comanda c : comandas){
-            if(c.equals(comanda)){
-                return true;
-            }
-        }
-        return false;
+        comandas = new HashSet<>();
     }
 
     /**
@@ -67,11 +52,7 @@ public class GerenciaComandas {
      * */
 
     public boolean create(Comanda novaComanda){
-        if(!isPresente(novaComanda)){
-            comandas.add(novaComanda);
-            return true;
-        }
-        return false;
+        return comandas.add(novaComanda);
     }
 
     /**
@@ -82,7 +63,7 @@ public class GerenciaComandas {
      * */
 
     public boolean closeComanda(Comanda comanda){
-        if(isPresente(comanda)){
+        if(comandas.contains(comanda)){
             comanda.setComandaAberta(false);
             return true;
         }
@@ -95,9 +76,9 @@ public class GerenciaComandas {
      * @return list - retorna uma lista de Pedidos.
      * */
 
-    public List<Pedido> listPedidos(int numComanda){
+    public Set<Pedido> listPedidos(int numComanda){
         Comanda c = findComanda(numComanda);
-        List<Pedido> listaPedidos  = c.list();
+        Set<Pedido> listaPedidos  = c.list();
         return listaPedidos;
     }
 
@@ -108,8 +89,8 @@ public class GerenciaComandas {
      * @return list - retorna uma lista de Comandas.
      * */
 
-    public List<Comanda> betweenDates(LocalDate dataInicio, LocalDate dataFim){
-        List<Comanda> tempoCmd = new ArrayList<>();
+    public Set<Comanda> betweenDates(LocalDate dataInicio, LocalDate dataFim){
+        Set<Comanda> tempoCmd = new HashSet<>();
 
         for(Comanda comanda : comandas){
             if(comanda.getData().compareTo(dataInicio)>=0 && comanda.getData().compareTo(dataFim)<=0){
