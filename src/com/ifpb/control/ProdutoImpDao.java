@@ -2,6 +2,7 @@ package com.ifpb.control;
 
 import com.ifpb.model.Funcionario;
 import com.ifpb.model.Produto;
+import com.sun.corba.se.spi.legacy.interceptor.ORBInitInfoExt;
 
 import java.io.*;
 import java.util.HashSet;
@@ -12,75 +13,82 @@ public class ProdutoImpDao implements ProdutoDao {
     private File file;
 
     public ProdutoImpDao() throws IOException{
-        file = new File("Cardapio");
+        file = new File("Produtos");
 
         if(!file.exists()){
             file.createNewFile();
         }
     }
 
-    private void attArchive(Set<Produto> cardapio) throws IOException{
-        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))){
-            out.writeObject(cardapio);
-        }
-    }
-
     @Override
-    public Set<Produto> getProdutos() throws ClassNotFoundException, IOException {
-        if(file.length()>0){
-            try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))){
-                return (Set<Produto>) in.readObject();
-            }
-        }else{
-            return new HashSet<>();
-        }
-    }
+    public boolean salvar(Produto p) throws IOException, ClassNotFoundException {
+        Set<Produto> produtos = getProdutos();
 
-    @Override
-    public boolean salvar(Produto p) throws ClassNotFoundException, IOException {
-        Set<Produto> cardapio = getProdutos();
-        if(cardapio.add(p)){
-            attArchive(cardapio);
+        if (produtos.add(p)) {
+            attArchive(produtos);
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    @Override
-    public boolean deletarPorCodigo(int codigo) throws ClassNotFoundException, IOException {
-        Set<Produto> cardapio = getProdutos();
-        Produto prod = new Produto(codigo);
-        if(cardapio.remove(prod)){
-            attArchive(cardapio);
-            return true;
-        }else{
-            return false;
+    private void attArchive(Set<Produto> p) throws IOException, FileNotFoundException{
+        try(ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream(file)
+        )){
+            out.writeObject(p);
         }
     }
 
     @Override
-    public boolean atualizar(Produto p) throws ClassNotFoundException, IOException {
-        Set<Produto> cardapio = getProdutos();
-        Produto prod1 = new Produto(p.getCodigo());
-        if(cardapio.remove(prod1)){
-            cardapio.add(p);
-            attArchive(cardapio);
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    @Override
-    public Produto buscarPorCodigo(int codigo) throws ClassNotFoundException, IOException {
-        Set<Produto> cardapio = getProdutos();
-        for(Produto p : cardapio){
-            if(p.getCodigo() == codigo){
+    public Produto buscarPorCodigo(String codigo) throws IOException, ClassNotFoundException {
+        Set<Produto> produtos = getProdutos();
+        for(Produto p : produtos){
+            if(p.getCodigo().equals(codigo)){
                 return p;
             }
         }
         return null;
     }
 
+    @Override
+    public boolean atualizar(Produto p) throws IOException, ClassNotFoundException {
+        Set<Produto> produtos = getProdutos();
+
+        Produto prod = buscarPorCodigo(p.getCodigo());
+
+        if(produtos.remove(prod)){
+            produtos.add(p);
+            attArchive(produtos);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deletarPorCodigo(String codigo) throws IOException, ClassNotFoundException{
+        Set<Produto> produtos = getProdutos();
+
+        Produto prod= buscarPorCodigo(codigo);
+        if(produtos.remove(prod)){
+            attArchive(produtos);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public Set<Produto> getProdutos() throws IOException, ClassNotFoundException{
+        if(file.length()>0){
+            try(ObjectInputStream in = new ObjectInputStream(
+                    new FileInputStream(file)
+            )){
+                return (Set<Produto>) in.readObject();
+            }
+        }else{
+            return new HashSet<>();
+        }
+    }
 }
