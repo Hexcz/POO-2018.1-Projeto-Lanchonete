@@ -36,12 +36,22 @@ public class Funcionario implements autenticarFuncionario, Serializable {
         this.setor = setor;
     }
 
-    public Funcionario(){
-
+    public Funcionario(String username, String senha){
+        this.username = username;
+        this.senha = senha;
     }
 
     public Funcionario(String username){
         this.username = username;
+    }
+
+    public Funcionario(String senha, String nome, String email, String telefone, LocalDate dataNascimento, Setor setor) {
+        this.senha = senha;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.setor = setor;
     }
 
     /**
@@ -112,9 +122,6 @@ public class Funcionario implements autenticarFuncionario, Serializable {
         this.setor = setor;
     }
 
-    /**
-     * MÉTODOS SOBRESCRITOS.
-     * */
 
     @Override
     public boolean equals(Object o) {
@@ -123,44 +130,40 @@ public class Funcionario implements autenticarFuncionario, Serializable {
 
         Funcionario that = (Funcionario) o;
 
-        if (!getUsername().equals(that.getUsername())) return false;
-        if (!getSenha().equals(that.getSenha())) return false;
-        if (!getCpf().equals(that.getCpf())) return false;
-        if (!getNome().equals(that.getNome())) return false;
-        if (getEmail() != null ? !getEmail().equals(that.getEmail()) : that.getEmail() != null) return false;
-        if (getTelefone() != null ? !getTelefone().equals(that.getTelefone()) : that.getTelefone() != null)
-            return false;
-        if (getDataNascimento() != null ? !getDataNascimento().equals(that.getDataNascimento()) : that.getDataNascimento() != null)
-            return false;
-        return getSetor() == that.getSetor();
+        return getUsername().equals(that.getUsername());
     }
+
+    /**
+     * MÉTODOS SOBRESCRITOS.
+     * */
+
 
     @Override
     public int hashCode() {
-        int result = getUsername().hashCode();
-        result = 31 * result + getSenha().hashCode();
-        result = 31 * result + getCpf().hashCode();
-        result = 31 * result + getNome().hashCode();
+        int result = getUsername() != null ? getUsername().hashCode() : 0;
+        result = 31 * result + (getSenha() != null ? getSenha().hashCode() : 0);
+        result = 31 * result + (getCpf() != null ? getCpf().hashCode() : 0);
+        result = 31 * result + (getNome() != null ? getNome().hashCode() : 0);
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         result = 31 * result + (getTelefone() != null ? getTelefone().hashCode() : 0);
         result = 31 * result + (getDataNascimento() != null ? getDataNascimento().hashCode() : 0);
-        result = 31 * result + getSetor().hashCode();
+        result = 31 * result + (getSetor() != null ? getSetor().hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return ":.:.:.:Funcionario:.:.:.:" +
-                "\nUsername: " + username + '\'' +
-                "\nSenha: " + senha + '\'' +
-                "\nCPF: " + cpf + '\'' +
-                "\nNome: " + nome + '\'' +
-                "\nE-mail: " + email + '\'' +
-                "\nTelefone: " + telefone + '\'' +
-                "\nData de nascimento: " + dataNascimento +
-                "\nSetor: " + setor;
+        return "Funcionario{" +
+                "username='" + username + '\'' +
+                ", senha='" + senha + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", setor=" + setor +
+                '}';
     }
-
 
     /**
      * Esta função tem por objetivo a verificação de um nome de usuário para autenticação do login.
