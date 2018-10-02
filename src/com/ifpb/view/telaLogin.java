@@ -47,13 +47,9 @@ public class telaLogin extends JFrame {
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                 }
 
-                if(func == null){
-                    System.out.println("deu merda");
-                }
-
                 if(func!=null){
                     if(func.verifyLogin(user,passwd)){
-                        telaPrincipal menuOpcoes = new telaPrincipal();
+                        telaPrincipal menuOpcoes = new telaPrincipal(func);
                         menuOpcoes.pack();
                         menuOpcoes.setVisible(true);
                         dispose();
@@ -73,31 +69,6 @@ public class telaLogin extends JFrame {
             }
         });
     }
-
-//    private void onAutenticar(){
-//        String user = username.getText();
-//        String passwd = new String(password.getPassword());
-//        Funcionario func = null;
-//
-//        try{
-//            func = userDao.buscarPorUsername(user);
-//        }catch(IOException|ClassNotFoundException ex){
-//            JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
-//        }
-//
-//        if(func!=null){
-//            if(func.verifyLogin(user,passwd)){
-//                telaPrincipal menuOpcoes = new telaPrincipal();
-//                menuOpcoes.pack();
-//                menuOpcoes.setVisible(true);
-//                dispose();
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Senha incorreta.", "Mensagem de Erro",JOptionPane.ERROR_MESSAGE);
-//            }
-//        }else{
-//                JOptionPane.showMessageDialog(null, "Usuário não cadastrado.", "Mensagem de Erro",JOptionPane.ERROR_MESSAGE);
-//            }
-//        }
 
     private void onCriarNovaConta(){
         telaCadastro cadastro = new telaCadastro();
