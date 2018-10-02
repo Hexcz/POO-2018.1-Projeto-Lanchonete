@@ -1,10 +1,23 @@
 package com.ifpb.view;
 
+import com.ifpb.control.ProdutoDao;
+import com.ifpb.control.ProdutoImpDao;
+import com.ifpb.model.Produto;
+import jdk.nashorn.internal.scripts.JO;
+import sun.plugin2.message.Message;
+
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
+import javax.swing.text.NumberFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.Currency;
+import java.util.Formatter;
+import java.util.Locale;
 
 public class gerenciaMenu extends JFrame {
     private JPanel contentPane;
@@ -12,63 +25,106 @@ public class gerenciaMenu extends JFrame {
     private JButton buscarButton;
     private JTextField textField2;
     private JTextArea textArea1;
-    private JFormattedTextField formattedTextField1;
+    private JFormattedTextField prcfrmfd;
     private JButton salvarButton;
     private JButton excluirButton;
     private JButton editarButton;
-    private JButton buttonOK;
+    private ProdutoDao daop;
+    private Produto prod;
+    private final Locale BRAZIL = new Locale("pt", "BR");
 
     public gerenciaMenu() {
+
+        try{
+            daop = new ProdutoImpDao();
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+        }
+
         setContentPane(contentPane);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        getRootPane().setDefaultButton(buttonOK);
-
-        buscarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
         salvarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String codigo = textField1.getText();
+                String nome = textField2.getText();
+                String descricao = textArea1.getText();
+                Double preco = Double.valueOf(prcfrmfd.getText());
+                prod = new Produto(codigo, preco, nome, descricao);
+                try{
+                    if(daop.salvar(prod)){
+                        JOptionPane.showMessageDialog(null, "Produto salvo!");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Produto cadastrado.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }catch(ClassNotFoundException|IOException ex){
+                    JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
+        /*buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prod = null;
+
+                try {
+                    prod = daop.buscarPorCodigo(textField1.getText());
+                    if(prod != null){
+                        textField1.setText(prod.getCodigo());
+                        textField2.setText(prod.getNome());
+                        textArea1.setText(prod.getDescricao());
+                        prcfrmfd.setValue(prod.getPreco());
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Produto não cadastrado");}
+                }catch(ClassNotFoundException|IOException ex4){
+                    JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }
+
+
+            }
+
+        });
+
+        editarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    prod = daop.buscarPorCodigo(textField1.getText());
+                    textField1.setText(prod.getCodigo());
+                    textField2.setText(prod.getNome());
+                    textArea1.setText(prod.getDescricao());
+                    prcfrmfd.setValue(prod.getPreco());
+
+                    String nome = textField1.getText();
+                    String descricao = textArea1.getText();
+                    Double valor = Double.parseDouble(prcfrmfd.getText());
+
+                    Produto prodAtt = new Produto(textField1.getText(),valor, nome, descricao);
+                    daop.atualizar(prodAtt);
+
+                }catch(ClassNotFoundException|IOException ex1){
+                    JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
         excluirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    prod = daop.buscarPorCodigo(textField1.getText());
+                    daop.deletarPorCodigo(prod.getCodigo());
+                } catch (ClassNotFoundException | IOException ex2) {
+                    JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }
             }
-        });
+            });
 
-        editarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        public static void main(String[] args){
 
-            }
-        });
+        }*/
     }
 
-    public static void main(String[] args) {
-        gerenciaMenu dialog = new gerenciaMenu();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
-
-    private void createUIComponents() {
-        MaskFormatter formatterPreco = null;
-
-        try{
-            formatterPreco = new MaskFormatter("R$");
-        }catch(ParseException ex){
-            System.out.println(ex.getMessage());
-        }
-        formattedTextField1 = new JFormattedTextField();
-        if(formatterPreco != null){
-            formatterPreco.install(formattedTextField1);
-        }
-    }
 }
