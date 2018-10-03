@@ -1,5 +1,6 @@
 package com.ifpb.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Set;
  * @since 1.0
  * */
 
-public class Cardapio {
+public class Cardapio implements Serializable {
 
     private Set<Produto> produtos;
 

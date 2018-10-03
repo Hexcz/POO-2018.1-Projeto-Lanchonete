@@ -11,4 +11,5 @@ public interface ComandaDao {
     boolean deletar(Comanda c) throws ClassNotFoundException, IOException;
     Comanda buscarPorNumero(int numero) throws ClassNotFoundException, IOException;
     Set<Comanda> getComandas() throws ClassNotFoundException, IOException;
+    Set<Comanda> buscarEmAberto() throws ClassNotFoundException, IOException;
 }

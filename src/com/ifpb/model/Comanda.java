@@ -1,8 +1,8 @@
 package com.ifpb.model;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,10 +15,10 @@ import java.util.Set;
  * @since 1.0
  * */
 
-public class Comanda{
+public class Comanda implements Serializable {
 
     private Set<Pedido> comanda;
-    private int numeroComanda;
+    private static int numeroComanda = 0;
     private boolean comandaAberta;
     private LocalDate data;
 
@@ -27,9 +27,9 @@ public class Comanda{
      * CONSTRUTORES.
      * */
 
-    public Comanda(int numeroComanda) {
+    public Comanda() {
         comanda = new HashSet<>();
-        this.numeroComanda = numeroComanda;
+        this.numeroComanda = numeroComanda++;
         this.comandaAberta = true;
         this.data = data.now();
     }

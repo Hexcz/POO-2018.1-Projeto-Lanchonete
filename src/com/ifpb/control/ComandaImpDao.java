@@ -84,5 +84,15 @@ public class ComandaImpDao implements ComandaDao {
         return null;
     }
 
-
+    @Override
+    public Set<Comanda> buscarEmAberto() throws IOException, ClassNotFoundException{
+        Set<Comanda> comandas = getComandas();
+        Set<Comanda> comandasAbertas = new HashSet<>();
+        for(Comanda c : comandas){
+            if(c.isComandaAberta()){
+                comandasAbertas.add(c);
+            }
+        }
+        return comandasAbertas;
+    }
 }

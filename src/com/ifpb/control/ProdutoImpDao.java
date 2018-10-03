@@ -1,9 +1,6 @@
 package com.ifpb.control;
 
-import com.ifpb.model.Funcionario;
 import com.ifpb.model.Produto;
-import com.sun.corba.se.spi.legacy.interceptor.ORBInitInfoExt;
-
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;

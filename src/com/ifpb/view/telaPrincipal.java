@@ -15,11 +15,12 @@ public class telaPrincipal extends JFrame {
     private JButton minhaContaButton;
     private JButton sairButton;
     private JPanel logoImagem;
+    private Funcionario f;
 
     public telaPrincipal(Funcionario func) {
         setContentPane(contentPane);
         setTitle("Tela Principal");
-//        getRootPane().setDefaultButton(buttonOK);
+        f = func;
 
         cardápioButton.addActionListener(new ActionListener() {
             @Override
@@ -60,10 +61,20 @@ public class telaPrincipal extends JFrame {
         mesasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                listarPedidos lP = new listarPedidos();
+                lP.pack();
+                lP.setVisible(true);
+                dispose();
+            }
+        });
+
+        gerenciaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
             }
         });
 
-
     }
+
 }

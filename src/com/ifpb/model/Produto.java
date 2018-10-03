@@ -1,5 +1,7 @@
 package com.ifpb.model;
 
+import java.io.Serializable;
+import java.io.SerializablePermission;
 import java.util.Objects;
 
 /**
@@ -10,7 +12,7 @@ import java.util.Objects;
  * @since 1.0
  * */
 
-public class Produto {
+public class Produto implements Serializable {
 
     private String codigo;
     private double preco;

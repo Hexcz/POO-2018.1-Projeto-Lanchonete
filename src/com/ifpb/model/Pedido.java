@@ -1,29 +1,30 @@
 package com.ifpb.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class Pedido {
+public class Pedido implements Serializable {
 
     private Produto produto;
     private final LocalDate data;
     private final LocalTime hora;
     private boolean atendido;
     private int quantidade;
-    private int numPedido;
+    private static int numPedido = 0;
 
     /**
      * CONSTRUTORES.
      * */
 
-    public Pedido(Produto produto, int quantidade, int numPedido) {
+    public Pedido(Produto produto, int quantidade) {
         this.produto = produto;
         this.data = LocalDate.now();
         this.hora = LocalTime.now();
         this.atendido = false;
         this.quantidade = quantidade;
-        this.numPedido = numPedido;
+        this.numPedido = numPedido++;
     }
 
     /**

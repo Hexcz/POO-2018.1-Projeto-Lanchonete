@@ -2,6 +2,7 @@ package com.ifpb.view;
 
 import com.ifpb.control.ProdutoDao;
 import com.ifpb.control.ProdutoImpDao;
+import com.ifpb.model.Funcionario;
 import com.ifpb.model.Produto;
 import jdk.nashorn.internal.scripts.JO;
 import sun.plugin2.message.Message;
@@ -66,7 +67,7 @@ public class gerenciaMenu extends JFrame {
             }
         });
 
-        /*buscarButton.addActionListener(new ActionListener() {
+        buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 prod = null;
@@ -94,18 +95,15 @@ public class gerenciaMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try{
                     prod = daop.buscarPorCodigo(textField1.getText());
-                    textField1.setText(prod.getCodigo());
-                    textField2.setText(prod.getNome());
-                    textArea1.setText(prod.getDescricao());
-                    prcfrmfd.setValue(prod.getPreco());
-
                     String nome = textField1.getText();
                     String descricao = textArea1.getText();
                     Double valor = Double.parseDouble(prcfrmfd.getText());
-
-                    Produto prodAtt = new Produto(textField1.getText(),valor, nome, descricao);
-                    daop.atualizar(prodAtt);
-
+                    Produto prodAtt = new Produto(prod.getCodigo(),valor, nome, descricao);
+                    if(daop.atualizar(prodAtt)){
+                        JOptionPane.showMessageDialog(null, "Produto atualizado");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Produto não foi alterado");
+                    }
                 }catch(ClassNotFoundException|IOException ex1){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
@@ -117,16 +115,19 @@ public class gerenciaMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     prod = daop.buscarPorCodigo(textField1.getText());
-                    daop.deletarPorCodigo(prod.getCodigo());
+                    int op = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
+                    if(op == JOptionPane.YES_OPTION) {
+                        daop.deletarPorCodigo(prod.getCodigo());
+                        JOptionPane.showMessageDialog(null, "Produto excluido", "Warning message", JOptionPane.WARNING_MESSAGE);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Produto não alterado", "Mensagem de aviso", JOptionPane.WARNING_MESSAGE);
+                    }
                 } catch (ClassNotFoundException | IOException ex2) {
                     JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
             });
 
-        public static void main(String[] args){
-
-        }*/
     }
 
 }
