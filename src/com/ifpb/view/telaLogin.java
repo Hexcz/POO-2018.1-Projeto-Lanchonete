@@ -73,6 +73,7 @@ public class telaLogin extends JFrame {
         telaCadastro cadastro = new telaCadastro();
         cadastro.pack();
         cadastro.setVisible(true);
+        dispose();
     }
 
     public static void main(String[] args) {

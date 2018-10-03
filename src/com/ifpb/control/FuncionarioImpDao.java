@@ -51,6 +51,28 @@ public class FuncionarioImpDao implements FuncionarioDao {
     }
 
     @Override
+    public Funcionario buscarPorCpf(String cpf) throws IOException, ClassNotFoundException {
+        Set<Funcionario> funcionarios = getFuncionarios();
+        for(Funcionario f : funcionarios){
+            if(f.getCpf().equals(cpf)){
+                return f;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Funcionario buscarPorEmail(String email) throws IOException, ClassNotFoundException {
+        Set<Funcionario> funcionarios = getFuncionarios();
+        for(Funcionario f : funcionarios){
+            if(f.getEmail().equals(email)){
+                return f;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public boolean atualizar(Funcionario funcionario) throws IOException, ClassNotFoundException {
         Set<Funcionario> funcionarios = getFuncionarios();
 

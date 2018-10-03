@@ -10,5 +10,7 @@ public interface FuncionarioDao {
     boolean deletarPorUsername(String username) throws IOException, ClassNotFoundException;
     boolean atualizar(Funcionario f) throws IOException, ClassNotFoundException;
     Funcionario buscarPorUsername(String username) throws IOException, ClassNotFoundException;
+    Funcionario buscarPorCpf(String cpf) throws IOException, ClassNotFoundException;
+    Funcionario buscarPorEmail(String email) throws IOException, ClassNotFoundException;
     Set<Funcionario> getFuncionarios() throws IOException, ClassNotFoundException;
 }

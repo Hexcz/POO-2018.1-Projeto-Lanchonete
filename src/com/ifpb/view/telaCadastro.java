@@ -60,19 +60,29 @@ public class telaCadastro extends JFrame {
                 Funcionario funcionario =  new Funcionario(username, senha, cpf, nome, email, telefone, nascimento, setor);
 
                 try {
-                    if (daoFunc.salvar(funcionario)) {
+                    if (daoFunc.buscarPorCpf(cpf)!=null){
+                        JOptionPane.showMessageDialog(null, "O CPF digitado já pertence a um usuário cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else if (daoFunc.buscarPorEmail(email)!=null){
+                        JOptionPane.showMessageDialog(null, "O e-mail digitado já pertence a um usuário cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else if (daoFunc.buscarPorUsername(username)!=null){
+                        JOptionPane.showMessageDialog(null, "O nome de usuário digitado já pertence a um usuário cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else if (daoFunc.salvar(funcionario)) {
                         JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Usuário em uso.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                        telaLogin telaLogin = new telaLogin();
+                        telaLogin.pack();
+                        telaLogin.setVisible(true);
+                        dispose();
                     }
                 }catch(IOException | ClassNotFoundException e1) {
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    telaLogin telaLogin = new telaLogin();
+                    telaLogin.pack();
+                    telaLogin.setVisible(true);
+                    dispose();
                 }
-
-                telaLogin telaLogin = new telaLogin();
-                telaLogin.pack();
-                telaLogin.setVisible(true);
-                dispose();
             }
         });
     }
