@@ -15,20 +15,20 @@ public class telaPrincipal extends JFrame {
     private JButton minhaContaButton;
     private JButton sairButton;
     private JPanel logoImagem;
+    private JLabel label1;
     private Funcionario f;
 
     public telaPrincipal(Funcionario func) {
         setContentPane(contentPane);
         setTitle("Tela Principal");
         f = func;
-
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         cardápioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gerenciaMenu cardapio = new gerenciaMenu();
                 cardapio.pack();
                 cardapio.setVisible(true);
-                dispose();
             }
         });
 
@@ -51,20 +51,19 @@ public class telaPrincipal extends JFrame {
             }
         });
 
-        cozinhaButton.addActionListener(new ActionListener() {
+        mesasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
 
-        mesasButton.addActionListener(new ActionListener() {
+        cozinhaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 listarPedidos lP = new listarPedidos();
                 lP.pack();
                 lP.setVisible(true);
-                dispose();
             }
         });
 
@@ -77,4 +76,8 @@ public class telaPrincipal extends JFrame {
 
     }
 
+    private void createUIComponents() {
+        ImageIcon logo = new ImageIcon("logo.png");
+        label1 = new JLabel(logo);
+    }
 }

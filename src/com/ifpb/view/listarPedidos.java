@@ -39,7 +39,7 @@ public class listarPedidos extends JDialog {
                 Comanda c = (Comanda) comboBox1.getSelectedItem();
                 int op = JOptionPane.showConfirmDialog(null, "Deseja encerrar a comanda?");
                 if(op == JOptionPane.YES_OPTION){
-                    c.setComandaAberta(false);
+                   c.setComandaAberta(false);
                     try{
                         daoc.atualizar(c);
                     }catch(ClassNotFoundException|IOException ex){
@@ -55,6 +55,11 @@ public class listarPedidos extends JDialog {
     }
 
     private void createUIComponents() {
-        comboBox1 = new JComboBox(comandasAbertas.toArray());
+        try {
+            comboBox1 = new JComboBox(comandasAbertas.toArray());
+        }catch(NullPointerException ex){
+            comboBox1 = new JComboBox();
+            JOptionPane.showMessageDialog(null, "Não há comandas abertas.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

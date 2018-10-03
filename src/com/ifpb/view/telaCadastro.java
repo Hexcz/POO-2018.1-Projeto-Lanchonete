@@ -38,7 +38,7 @@ public class telaCadastro extends JFrame {
 
         setContentPane(contentPane);
         setTitle("Cadastro de Usuário");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         getRootPane().setDefaultButton(buttonOK);
 
         salvarButton.addActionListener(new ActionListener() {
@@ -61,7 +61,7 @@ public class telaCadastro extends JFrame {
 
                 try {
                     if (daoFunc.salvar(funcionario)) {
-                        JOptionPane.showMessageDialog(null, "Salvo!");
+                        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Usuário em uso.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                     }

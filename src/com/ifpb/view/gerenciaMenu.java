@@ -2,23 +2,11 @@ package com.ifpb.view;
 
 import com.ifpb.control.ProdutoDao;
 import com.ifpb.control.ProdutoImpDao;
-import com.ifpb.model.Funcionario;
 import com.ifpb.model.Produto;
-import jdk.nashorn.internal.scripts.JO;
-import sun.plugin2.message.Message;
-
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
-import javax.swing.text.NumberFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.Currency;
-import java.util.Formatter;
-import java.util.Locale;
 
 public class gerenciaMenu extends JFrame {
     private JPanel contentPane;
@@ -32,10 +20,9 @@ public class gerenciaMenu extends JFrame {
     private JButton editarButton;
     private ProdutoDao daop;
     private Produto prod;
-    private final Locale BRAZIL = new Locale("pt", "BR");
 
     public gerenciaMenu() {
-
+        setTitle("Cardápio");
         try{
             daop = new ProdutoImpDao();
         }catch(IOException ex){
@@ -43,7 +30,7 @@ public class gerenciaMenu extends JFrame {
         }
 
         setContentPane(contentPane);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         salvarButton.addActionListener(new ActionListener() {
             @Override
@@ -54,11 +41,10 @@ public class gerenciaMenu extends JFrame {
                 Double preco = Double.valueOf(prcfrmfd.getText());
                 prod = new Produto(codigo, preco, nome, descricao);
                 try{
-                    System.out.println("!!!!!!!!!   ");
                     if (daop.salvar(prod)){
-                    JOptionPane.showMessageDialog(null, "Produto salvo!");
+                    JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Produto cadastrado.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Produto já existente.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 catch(IOException | ClassNotFoundException ex){
@@ -80,7 +66,7 @@ public class gerenciaMenu extends JFrame {
                         textArea1.setText(prod.getDescricao());
                         prcfrmfd.setValue(prod.getPreco());
                     }else{
-                        JOptionPane.showMessageDialog(null, "Produto não cadastrado");}
+                        JOptionPane.showMessageDialog(null, "Produto não cadastrado.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);}
                 }catch(ClassNotFoundException|IOException ex4){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
@@ -95,14 +81,14 @@ public class gerenciaMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try{
                     prod = daop.buscarPorCodigo(textField1.getText());
-                    String nome = textField1.getText();
+                    String nome = textField2.getText();
                     String descricao = textArea1.getText();
                     Double valor = Double.parseDouble(prcfrmfd.getText());
                     Produto prodAtt = new Produto(prod.getCodigo(),valor, nome, descricao);
                     if(daop.atualizar(prodAtt)){
-                        JOptionPane.showMessageDialog(null, "Produto atualizado");
+                        JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso!");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Produto não foi alterado");
+                        JOptionPane.showMessageDialog(null, "Produto não foi alterado.");
                     }
                 }catch(ClassNotFoundException|IOException ex1){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);

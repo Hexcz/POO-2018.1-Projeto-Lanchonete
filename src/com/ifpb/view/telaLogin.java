@@ -3,7 +3,6 @@ package com.ifpb.view;
 import com.ifpb.control.FuncionarioDao;
 import com.ifpb.control.FuncionarioImpDao;
 import com.ifpb.model.Funcionario;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +18,7 @@ public class telaLogin extends JFrame {
     private JLabel senha;
     private JPanel panelMain;
     private JButton autenticarButton;
+    private JLabel Logo;
     private FuncionarioDao userDao;
 
     public telaLogin() {
@@ -31,7 +31,6 @@ public class telaLogin extends JFrame {
 
         setContentPane(contentPane);
         setTitle("Tela Login");
-//        getRootPane().setDefaultButton(autenticarButton);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         autenticarButton.addActionListener(new ActionListener() {
@@ -74,13 +73,16 @@ public class telaLogin extends JFrame {
         telaCadastro cadastro = new telaCadastro();
         cadastro.pack();
         cadastro.setVisible(true);
-        dispose();
     }
 
     public static void main(String[] args) {
         telaLogin dialog = new telaLogin();
         dialog.pack();
         dialog.setVisible(true);
-        //System.exit(0);
+    }
+
+    private void createUIComponents() {
+        ImageIcon logo = new ImageIcon("logo.png");
+        Logo = new JLabel(logo);
     }
 }

@@ -48,7 +48,7 @@ public class ComandaImpDao implements ComandaDao {
     @Override
     public boolean atualizar(Comanda comanda) throws ClassNotFoundException, IOException {
         Set<Comanda> comandas = getComandas();
-        Comanda c = new Comanda(comanda.getNumeroComanda());
+        Comanda c = new Comanda();
         if(comandas.remove(c)){
             comandas.add(comanda);
             attArchive(comandas);
@@ -61,7 +61,7 @@ public class ComandaImpDao implements ComandaDao {
     @Override
     public boolean deletar(Comanda comanda) throws ClassNotFoundException, IOException {
         Set<Comanda> comandas = getComandas();
-        Comanda c = new Comanda(comanda.getNumeroComanda());
+        Comanda c = new Comanda();
         if(comandas.contains(c)){
             comanda.setComandaAberta(false);
             comandas.remove(c);
