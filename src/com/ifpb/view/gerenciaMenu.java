@@ -53,12 +53,14 @@ public class gerenciaMenu extends JFrame {
                 Double preco = Double.valueOf(prcfrmfd.getText());
                 prod = new Produto(codigo, preco, nome, descricao);
                 try{
-                    if(daop.salvar(prod)){
-                        JOptionPane.showMessageDialog(null, "Produto salvo!");
+                    System.out.println("!!!!!!!!!   ");
+                    if (daop.salvar(prod)){
+                    JOptionPane.showMessageDialog(null, "Produto salvo!");
                     }else{
                         JOptionPane.showMessageDialog(null, "Produto cadastrado.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                     }
-                }catch(ClassNotFoundException|IOException ex){
+                }
+                catch(IOException | ClassNotFoundException ex){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
