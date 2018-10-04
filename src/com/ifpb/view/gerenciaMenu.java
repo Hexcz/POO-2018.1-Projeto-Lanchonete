@@ -16,7 +16,7 @@ public class gerenciaMenu extends JFrame {
     private JButton buscarButton;
     private JTextField textField2;
     private JTextArea textArea1;
-    private JFormattedTextField prcfrmfd;
+    private JTextField prcfrmfd;
     private JButton salvarButton;
     private JButton excluirButton;
     private JButton editarButton;
@@ -44,14 +44,18 @@ public class gerenciaMenu extends JFrame {
                 try{
                     preco = Double.valueOf(prcfrmfd.getText());
                 }catch (NumberFormatException ex){
-                    JOptionPane.showMessageDialog(null, "O formato do número é inválido.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "O formato do preço é inválido.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                 }
                 prod = new Produto(codigo, preco, nome, descricao);
                 try{
                     if (daop.salvar(prod)){
                     JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+                    textArea1.setText("");
+                    textField1.setText("");
+                    textField2.setText("");
+                    prcfrmfd.setText("");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Produto já existente.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Este código do produto já existe no sistema.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 catch(IOException | ClassNotFoundException ex){
@@ -75,9 +79,14 @@ public class gerenciaMenu extends JFrame {
                         textField1.setText(prod.getCodigo());
                         textField2.setText(prod.getNome());
                         textArea1.setText(prod.getDescricao());
-                        prcfrmfd.setValue(prod.getPreco());
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Produto não cadastrado.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);}
+                        prcfrmfd.setText(String.valueOf(prod.getPreco()));
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Produto não cadastrado.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                        textArea1.setText("");
+                        textField1.setText("");
+                        textField2.setText("");
+                        prcfrmfd.setText("");
+                    }
                 }catch(ClassNotFoundException|IOException ex4){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
@@ -94,15 +103,30 @@ public class gerenciaMenu extends JFrame {
                     prod = daop.buscarPorCodigo(textField1.getText());
                     String nome = textField2.getText();
                     String descricao = textArea1.getText();
-                    Double valor = Double.parseDouble(prcfrmfd.getText());
+                    Double valor = 0.0;
+                    try {
+                        valor = Double.parseDouble(prcfrmfd.getText());
+                    }catch (NumberFormatException ex){
+                        JOptionPane.showMessageDialog(null, "O formato do preço é inválido.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                    }
                     Produto prodAtt = new Produto(prod.getCodigo(),valor, nome, descricao);
                     if(daop.atualizar(prodAtt)){
                         JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso!");
+                        textArea1.setText("");
+                        textField1.setText("");
+                        textField2.setText("");
+                        prcfrmfd.setText("");
                     }else{
                         JOptionPane.showMessageDialog(null, "Produto não foi alterado.");
                     }
                 }catch(ClassNotFoundException|IOException ex1){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }catch(NullPointerException ex){
+                    JOptionPane.showMessageDialog(null, "O código do produto que se deseja atualizar deve ser o mesmo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }catch(CampoNuloException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                }catch (PrecoInvalidoException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -115,12 +139,16 @@ public class gerenciaMenu extends JFrame {
                     int op = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
                     if(op == JOptionPane.YES_OPTION) {
                         daop.deletarPorCodigo(prod.getCodigo());
-                        JOptionPane.showMessageDialog(null, "Produto excluido", "Warning message", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Produto excluido com sucesso!");
+                        textArea1.setText("");
+                        textField1.setText("");
+                        textField2.setText("");
+                        prcfrmfd.setText("");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Produto não alterado", "Mensagem de aviso", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Produto não alterado.", "Mensagem de aviso", JOptionPane.WARNING_MESSAGE);
                     }
                 } catch (ClassNotFoundException | IOException ex2) {
-                    JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog   (null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
             });

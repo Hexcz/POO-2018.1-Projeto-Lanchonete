@@ -56,9 +56,14 @@ public class ProdutoImpDao implements ProdutoDao {
     }
 
     @Override
-    public boolean atualizar(Produto p) throws IOException, ClassNotFoundException {
+    public boolean atualizar(Produto p) throws IOException, ClassNotFoundException, CampoNuloException, PrecoInvalidoException {
         Set<Produto> produtos = getProdutos();
-
+        if (p.getCodigo().equals("") | p.getNome().equals("") | p.getDescricao().equals("")){
+            throw new CampoNuloException("Os campos marcados com * não podem ser atualizados para nulo.");
+        }
+        if(p.getPreco() <= 0){
+            throw new PrecoInvalidoException("O preço não pode ser menor ou igual a zero!");
+        }
         Produto prod = buscarPorCodigo(p.getCodigo());
 
         if(produtos.remove(prod)){
