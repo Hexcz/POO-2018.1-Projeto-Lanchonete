@@ -6,6 +6,7 @@ import com.ifpb.exceptions.CampoNuloException;
 import com.ifpb.exceptions.IdadeInvalidaException;
 import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -86,21 +87,18 @@ public class telaCadastro extends JFrame {
                     }
                     else if (daoFunc.salvar(funcionario)) {
                         JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
-                        telaLogin telaLogin = new telaLogin();
-                        telaLogin.pack();
-                        telaLogin.setVisible(true);
-                        dispose();
                     }
                 }catch(IOException | ClassNotFoundException e1) {
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
-                    telaLogin telaLogin = new telaLogin();
-                    telaLogin.pack();
-                    telaLogin.setVisible(true);
-                    dispose();
                 }catch (CampoNuloException ex){
                     JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }catch (IdadeInvalidaException ex){
                     JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }finally{
+                    telaLogin telaLogin = new telaLogin();
+                    telaLogin.pack();
+                    telaLogin.setVisible(true);
+                    dispose();
                 }
             }
         });
@@ -123,7 +121,7 @@ public class telaCadastro extends JFrame {
             formatterData = new MaskFormatter("##/##/####");
             formatterTel = new MaskFormatter("(##)#####-####");
         }catch (ParseException ex){
-            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
         }
 
         cpffrmfield = new JFormattedTextField();
