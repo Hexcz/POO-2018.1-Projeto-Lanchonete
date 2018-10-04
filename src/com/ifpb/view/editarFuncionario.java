@@ -2,6 +2,7 @@ package com.ifpb.view;
 
 import com.ifpb.control.FuncionarioDao;
 import com.ifpb.control.FuncionarioImpDao;
+import com.ifpb.exceptions.CampoNuloException;
 import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
 
@@ -39,15 +40,19 @@ public class editarFuncionario extends JFrame {
         setContentPane(contentPane);
         setTitle("Editar funcionario");
         DateTimeFormatter frmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Funcionario funcExib = funcionario;
+        nametfd.setText(funcExib.getNome());
+        emailfd.setText(funcExib.getEmail());
+        usrfd.setText(funcExib.getUsername());
+        numfrmfd.setText(funcExib.getTelefone());
+        if(nascfrmfd!=null){ nascfrmfd.setValue(funcExib.getDataNascimento().format(frmt));}
+        cpffrmfd.setText(funcExib.getCpf());
+        pssdfd.setText(funcExib.getSenha());
+        setorfd.setSelectedItem(funcExib.getSetor());
 
-        nametfd.setText(funcionario.getNome());
-        emailfd.setText(funcionario.getEmail());
-        usrfd.setText(funcionario.getUsername());
-        numfrmfd.setText(funcionario.getTelefone());
-        if(nascfrmfd!=null){ nascfrmfd.setValue(funcionario.getDataNascimento().format(frmt));}
-        cpffrmfd.setText(funcionario.getCpf());
-        pssdfd.setText(funcionario.getSenha());
-        setorfd.setSelectedItem(funcionario.getSetor());
+        cpffrmfd.setEditable(false);
+        nascfrmfd.setEditable(false);
+        usrfd.setEditable(false);
 
         editarButton.addActionListener(new ActionListener() {
             @Override
@@ -60,10 +65,31 @@ public class editarFuncionario extends JFrame {
                 Setor set = (Setor) setorfd.getSelectedItem();
                 funcAtt = new Funcionario(usrfd.getText(), pswd, cpffrmfd.getText(), nome, email, tel, nas, set);
                 try {
-                    System.out.println(daoEdit.getFuncionarios());
-                    System.out.println(daoEdit.atualizar(funcAtt));
+                    if (daoEdit.buscarPorEmail(email)!=null && !daoEdit.buscarPorEmail(email).getEmail().equals("")){
+                        if (!daoEdit.buscarPorEmail(funcExib.getEmail()).getEmail().equals(email)){
+                            JOptionPane.showMessageDialog(null, "O e-mail digitado já pertence a um usuário cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else{
+                            daoEdit.atualizar(funcAtt);
+                            JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso!");
+                            funcExib.setEmail(email);
+                            funcExib.setTelefone(tel);
+                            funcExib.setNome(nome);
+                            funcExib.setSenha(pswd);
+                        }
+                    }
+                    else{
+                        daoEdit.atualizar(funcAtt);
+                        JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso!");
+                        funcExib.setEmail(email);
+                        funcExib.setTelefone(tel);
+                        funcExib.setNome(nome);
+                        funcExib.setSenha(pswd);
+                    }
                 }catch(ClassNotFoundException|IOException ex){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }catch(CampoNuloException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
                 dispose();
             }

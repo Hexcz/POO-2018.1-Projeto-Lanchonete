@@ -10,7 +10,7 @@ import java.util.Set;
 public interface FuncionarioDao {
     boolean salvar(Funcionario f) throws IOException, ClassNotFoundException, CampoNuloException, IdadeInvalidaException;
     boolean deletarPorUsername(String username) throws IOException, ClassNotFoundException;
-    boolean atualizar(Funcionario f) throws IOException, ClassNotFoundException;
+    boolean atualizar(Funcionario f) throws IOException, ClassNotFoundException, CampoNuloException;
     Funcionario buscarPorUsername(String username) throws IOException, ClassNotFoundException;
     Funcionario buscarPorCpf(String cpf) throws IOException, ClassNotFoundException;
     Funcionario buscarPorEmail(String email) throws IOException, ClassNotFoundException;

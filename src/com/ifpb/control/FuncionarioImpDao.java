@@ -81,9 +81,11 @@ public class FuncionarioImpDao implements FuncionarioDao {
     }
 
     @Override
-    public boolean atualizar(Funcionario funcionario) throws IOException, ClassNotFoundException {
+    public boolean atualizar(Funcionario funcionario) throws IOException, ClassNotFoundException, CampoNuloException {
         Set<Funcionario> funcionarios = getFuncionarios();
-
+        if(funcionario.getNome().equals("") | funcionario.getSenha().equals("")){
+            throw new CampoNuloException("Campos com * não podem ficar nulos!");
+        }
         Funcionario func = buscarPorUsername(funcionario.getUsername());
 
         if(funcionarios.remove(func)){
