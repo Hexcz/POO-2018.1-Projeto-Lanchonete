@@ -20,12 +20,10 @@ public class telaPrincipal extends JFrame {
 
     public telaPrincipal(Funcionario func) {
         setContentPane(contentPane);
+        setLocationRelativeTo(null);
         setTitle("Tela Principal");
         f = func;
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        pack();
-        setLocationRelativeTo(null);
-
         cardápioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,7 +71,9 @@ public class telaPrincipal extends JFrame {
         gerenciaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                gerenciaComandasData gcd = new gerenciaComandasData();
+                gcd.pack();
+                gcd.setVisible(true);
             }
         });
 
