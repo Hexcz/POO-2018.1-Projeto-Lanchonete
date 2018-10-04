@@ -7,12 +7,13 @@ import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
 
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.zip.DataFormatException;
 
 public class editarFuncionario extends JFrame {
     private JPanel contentPane;
@@ -40,6 +41,9 @@ public class editarFuncionario extends JFrame {
         setContentPane(contentPane);
         setTitle("Editar funcionario");
         DateTimeFormatter frmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        pack();
+        setLocationRelativeTo(null);
+
         Funcionario funcExib = funcionario;
         nametfd.setText(funcExib.getNome());
         emailfd.setText(funcExib.getEmail());
@@ -101,9 +105,24 @@ public class editarFuncionario extends JFrame {
                 dispose();
             }
         });
+
     }
 
     private void createUIComponents() {
+        MaskFormatter formatter = null;
+
+        try{
+            formatter = new MaskFormatter("(##)#####-####");
+        }
+        catch (ParseException ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        numfrmfd = new JFormattedTextField();
+
+        if(formatter != null){
+            formatter.install(numfrmfd);
+        }
         setorfd = new JComboBox(Setor.values());
     }
 }

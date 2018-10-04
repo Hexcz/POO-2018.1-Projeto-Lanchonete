@@ -33,6 +33,8 @@ public class gerenciaMenu extends JFrame {
 
         setContentPane(contentPane);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
 
         salvarButton.addActionListener(new ActionListener() {
             @Override

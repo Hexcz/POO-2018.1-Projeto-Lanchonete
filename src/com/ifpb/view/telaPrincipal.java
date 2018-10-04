@@ -23,6 +23,9 @@ public class telaPrincipal extends JFrame {
         setTitle("Tela Principal");
         f = func;
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
+
         cardápioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

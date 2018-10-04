@@ -6,12 +6,13 @@ import com.ifpb.exceptions.CampoNuloException;
 import com.ifpb.exceptions.IdadeInvalidaException;
 import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -46,6 +47,8 @@ public class telaCadastro extends JFrame {
         setTitle("Cadastro de Usuário");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         getRootPane().setDefaultButton(buttonOK);
+        pack();
+        setLocationRelativeTo(null);
 
         salvarButton.addActionListener(new ActionListener() {
             @Override
@@ -100,6 +103,18 @@ public class telaCadastro extends JFrame {
                     telaLogin.setVisible(true);
                     dispose();
                 }
+            }
+        });
+
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                telaLogin telaLogin = new telaLogin();
+                telaLogin.pack();
+                telaLogin.setVisible(true);
+                e.getWindow().dispose();
             }
         });
     }

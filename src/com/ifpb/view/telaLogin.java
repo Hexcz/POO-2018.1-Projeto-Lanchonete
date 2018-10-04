@@ -32,6 +32,8 @@ public class telaLogin extends JFrame {
         setContentPane(contentPane);
         setTitle("Tela Login");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
 
         autenticarButton.addActionListener(new ActionListener() {
             @Override

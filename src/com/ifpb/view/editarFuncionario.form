@@ -21,7 +21,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Nome"/>
+              <text value="Nome*"/>
             </properties>
           </component>
           <component id="ad5d8" class="javax.swing.JLabel">
@@ -104,7 +104,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="248aa" class="javax.swing.JFormattedTextField" binding="numfrmfd">
+          <component id="248aa" class="javax.swing.JFormattedTextField" binding="numfrmfd" custom-create="true">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
