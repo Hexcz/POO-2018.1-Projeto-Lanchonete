@@ -29,7 +29,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Nome"/>
+              <text value="Nome*"/>
             </properties>
           </component>
           <component id="ba3a1" class="javax.swing.JTextField" binding="textField1" default-binding="true">
@@ -45,7 +45,7 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="CPF"/>
+              <text value="CPF*"/>
             </properties>
           </component>
           <component id="a7bc0" class="javax.swing.JLabel">
@@ -53,7 +53,7 @@
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Senha"/>
+              <text value="Senha*"/>
             </properties>
           </component>
           <component id="ea9b4" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
@@ -111,7 +111,7 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Nascimento"/>
+              <text value="Nascimento*"/>
             </properties>
           </component>
           <component id="23ff7" class="javax.swing.JFormattedTextField" binding="datanasc" custom-create="true">
@@ -127,7 +127,7 @@
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Username"/>
+              <text value="Username*"/>
             </properties>
           </component>
           <component id="1776a" class="javax.swing.JTextField" binding="textField3" default-binding="true">
@@ -143,7 +143,7 @@
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Setor"/>
+              <text value="Setor*"/>
             </properties>
           </component>
           <component id="3afca" class="javax.swing.JComboBox" binding="comboBox1" custom-create="true" default-binding="true">

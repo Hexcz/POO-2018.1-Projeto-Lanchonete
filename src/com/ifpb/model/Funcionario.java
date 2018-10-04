@@ -1,5 +1,7 @@
 package com.ifpb.model;
 
+import com.ifpb.exceptions.CampoNuloException;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -45,7 +47,7 @@ public class Funcionario implements autenticarFuncionario, Serializable {
         this.username = username;
     }
 
-    public Funcionario(String senha, String nome, String email, String telefone, LocalDate dataNascimento, Setor setor) {
+    public Funcionario(String senha, String nome, String email, String telefone, LocalDate dataNascimento, Setor setor){
         this.senha = senha;
         this.nome = nome;
         this.email = email;

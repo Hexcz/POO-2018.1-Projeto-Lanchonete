@@ -1,9 +1,12 @@
 package com.ifpb.control;
 
+import com.ifpb.exceptions.CampoNuloException;
+import com.ifpb.exceptions.IdadeInvalidaException;
 import com.ifpb.model.Funcionario;
-import com.sun.corba.se.spi.legacy.interceptor.ORBInitInfoExt;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,9 +23,14 @@ public class FuncionarioImpDao implements FuncionarioDao {
     }
 
     @Override
-    public boolean salvar(Funcionario f) throws IOException, ClassNotFoundException {
+    public boolean salvar(Funcionario f) throws IOException, ClassNotFoundException, CampoNuloException, IdadeInvalidaException {
         Set<Funcionario> funcionarios = getFuncionarios();
-
+        if(ChronoUnit.YEARS.between(f.getDataNascimento(), LocalDate.now())<16 | ChronoUnit.YEARS.between(f.getDataNascimento(), LocalDate.now())>100){
+            throw new IdadeInvalidaException("Idade inválida (Idade mínima: 16 anos, Idade máxima: 100 anos).");
+        }
+        if (f.getNome().equals("") | f.getCpf().equals("   .   .   -  ") | f.getUsername().equals("") | f.getSenha().equals("")){
+           throw new CampoNuloException("Campos com * são obrigatórios!");
+        }
         if (funcionarios.add(f)) {
             attArchive(funcionarios);
             return true;

@@ -2,6 +2,8 @@ package com.ifpb.view;
 
 import com.ifpb.control.FuncionarioDao;
 import com.ifpb.control.FuncionarioImpDao;
+import com.ifpb.exceptions.CampoNuloException;
+import com.ifpb.exceptions.IdadeInvalidaException;
 import com.ifpb.model.Funcionario;
 import com.ifpb.model.Setor;
 
@@ -13,6 +15,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
+import static java.time.format.ResolverStyle.LENIENT;
 
 public class telaCadastro extends JFrame {
     private JPanel contentPane;
@@ -53,9 +58,19 @@ public class telaCadastro extends JFrame {
                 String telefone = numTel.getText();
                 String email = textField2.getText();
 
+                LocalDate nascimento = LocalDate.MIN;
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-                LocalDate nascimento = LocalDate.parse(datanasc.getText(),formatter);
+                try{
+                    nascimento = LocalDate.parse(datanasc.getText(),formatter);
+                    LocalDate nascimentoComp = LocalDate.parse(datanasc.getText(),formatter.withResolverStyle(LENIENT));
+                    if (nascimentoComp.getMonthValue() > nascimento.getMonthValue()){
+                        JOptionPane.showMessageDialog(null, "O dia excede o limite de dias do mês digitado, portanto no momento de salvar, será corrigido para o último dia do Mês, que é "
+                                        +nascimento.lengthOfMonth()+".",
+                                "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }catch (DateTimeParseException ex){
+                    JOptionPane.showMessageDialog(null, "Data inválida!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }
 
                 Funcionario funcionario =  new Funcionario(username, senha, cpf, nome, email, telefone, nascimento, setor);
 
@@ -63,7 +78,7 @@ public class telaCadastro extends JFrame {
                     if (daoFunc.buscarPorCpf(cpf)!=null){
                         JOptionPane.showMessageDialog(null, "O CPF digitado já pertence a um usuário cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                     }
-                    else if (daoFunc.buscarPorEmail(email)!=null){
+                    else if (daoFunc.buscarPorEmail(email)!=null && !daoFunc.buscarPorEmail(email).getEmail().equals("")){
                         JOptionPane.showMessageDialog(null, "O e-mail digitado já pertence a um usuário cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                     }
                     else if (daoFunc.buscarPorUsername(username)!=null){
@@ -82,6 +97,10 @@ public class telaCadastro extends JFrame {
                     telaLogin.pack();
                     telaLogin.setVisible(true);
                     dispose();
+                }catch (CampoNuloException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }catch (IdadeInvalidaException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
