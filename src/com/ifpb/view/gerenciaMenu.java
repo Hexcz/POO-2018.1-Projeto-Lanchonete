@@ -22,6 +22,7 @@ public class gerenciaMenu extends JFrame {
     private JButton editarButton;
     private ProdutoDao daop;
     private Produto prod;
+    private String codControleUpdate;
 
     public gerenciaMenu() {
         setTitle("Cardápio");
@@ -77,6 +78,7 @@ public class gerenciaMenu extends JFrame {
 
                 try {
                     prod = daop.buscarPorCodigo(textField1.getText());
+                    codControleUpdate = textField1.getText();
                     if(prod != null){
                         textField1.setText(prod.getCodigo());
                         textField2.setText(prod.getNome());
@@ -112,7 +114,10 @@ public class gerenciaMenu extends JFrame {
                         JOptionPane.showMessageDialog(null, "O formato do preço é inválido.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                     }
                     Produto prodAtt = new Produto(prod.getCodigo(),valor, nome, descricao);
-                    if(daop.atualizar(prodAtt)){
+                    if (!prodAtt.getCodigo().equals(codControleUpdate)){
+                        JOptionPane.showMessageDialog(null, "O código do produto que se deseja atualizar deve ser o mesmo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else if(daop.atualizar(prodAtt)){
                         JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso!");
                         textArea1.setText("");
                         textField1.setText("");

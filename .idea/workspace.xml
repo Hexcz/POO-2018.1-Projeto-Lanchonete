@@ -3,24 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6b231916-a512-4713-b787-ef41fcd5c65b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Funcionarios" beforeDir="false" afterPath="$PROJECT_DIR$/Funcionarios" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/control/ComandaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/control/ComandaDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/control/ComandaImpDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/control/ComandaImpDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/editarFuncionario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/editarFuncionario$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/editarFuncionario$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/editarFuncionario$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/editarFuncionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/editarFuncionario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaComandasData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaComandasData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaLogin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaLogin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaLogin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaLogin$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Produtos" beforeDir="false" afterPath="$PROJECT_DIR$/Produtos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaMenu$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/gerenciaMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/telaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/telaLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/telaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/telaPrincipal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,13 +30,22 @@
       <file leaf-file-name="telaCadastro.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="50" column="36" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="50" selection-end-column="36" />
+            <state relative-caret-position="510">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5160#5389#0" expanded="true" />
                 <element signature="e#5388#5389#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProdutoImpDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -66,8 +62,7 @@
       <file leaf-file-name="telaLogin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            <state>
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,8 +85,8 @@
       <file leaf-file-name="gerenciaMenu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+            <state relative-caret-position="404">
+              <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -482,12 +477,12 @@
       <workItem from="1538606165805" duration="15090000" />
       <workItem from="1538622525951" duration="637000" />
       <workItem from="1538651796899" duration="11102000" />
-      <workItem from="1538678166709" duration="5674000" />
+      <workItem from="1538678166709" duration="8325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173021000" />
+    <option name="totallyTimeSpent" value="175672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -503,11 +498,11 @@
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.17730497" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.17730497" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1609375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1609375" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32911393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -775,13 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="727">
-          <caret line="65" column="9" lean-forward="true" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/FuncionarioDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -789,40 +777,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.form">
       <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" column="36" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="50" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5160#5389#0" expanded="true" />
-            <element signature="e#5388#5389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaPrincipal.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -844,10 +800,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5160#5389#0" expanded="true" />
+            <element signature="e#5388#5389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+        <state relative-caret-position="404">
+          <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
         </state>
       </provider>
     </entry>
