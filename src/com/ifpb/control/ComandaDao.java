@@ -3,6 +3,7 @@ package com.ifpb.control;
 import com.ifpb.model.Comanda;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Set;
 
 public interface ComandaDao {
@@ -12,4 +13,5 @@ public interface ComandaDao {
     Comanda buscarPorNumero(int numero) throws ClassNotFoundException, IOException;
     Set<Comanda> getComandas() throws ClassNotFoundException, IOException;
     Set<Comanda> buscarEmAberto() throws ClassNotFoundException, IOException;
+    Set<Comanda> buscarEmIntervalo(LocalDate inicio, LocalDate fim) throws ClassNotFoundException, IOException;
 }
