@@ -25,6 +25,7 @@ public class listarPedidos extends JDialog {
             JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
         }
         setContentPane(contentPane);
+        setLocationRelativeTo(null);
         setTitle("Pedidos");
 
         try {
@@ -32,6 +33,8 @@ public class listarPedidos extends JDialog {
         }catch(ClassNotFoundException|IOException ex1){
             JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
         }
+
+
 
         atenderButton.addActionListener(new ActionListener() {
             @Override
@@ -55,11 +58,11 @@ public class listarPedidos extends JDialog {
     }
 
     private void createUIComponents() {
-        try {
-            comboBox1 = new JComboBox(comandasAbertas.toArray());
-        }catch(NullPointerException ex){
+
+        if(comandasAbertas == null){
             comboBox1 = new JComboBox();
-            JOptionPane.showMessageDialog(null, "Não há comandas abertas.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+        }else {
+            comboBox1 = new JComboBox(comandasAbertas.toArray());
         }
     }
 }
