@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6b231916-a512-4713-b787-ef41fcd5c65b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Funcionarios" beforeDir="false" afterPath="$PROJECT_DIR$/Funcionarios" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lanchonete/com/ifpb/view/telaCadastro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/control/FuncionarioDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/control/FuncionarioDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/model/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/model/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Produtos" beforeDir="false" afterPath="$PROJECT_DIR$/Produtos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,8 +32,44 @@
       <file leaf-file-name="telaCadastro.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="102" column="121" lean-forward="true" selection-start-line="102" selection-start-column="121" selection-end-line="102" selection-end-column="121" />
+            <state relative-caret-position="579">
+              <caret line="64" column="113" selection-start-line="64" selection-start-column="113" selection-end-line="64" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gerenciaMenu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProdutoImpDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="28" column="92" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrecoInvalidoException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Produto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ifpb/model/Produto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -42,17 +77,17 @@
       <file leaf-file-name="IdadeInvalidaException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ifpb/exceptions/IdadeInvalidaException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            <state>
+              <caret selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FuncionarioImpDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FuncionarioImpDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="28" column="112" selection-start-line="28" selection-start-column="112" selection-end-line="28" selection-end-column="112" />
+            <state relative-caret-position="187">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,11 +95,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FuncionarioDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/FuncionarioDao.java">
+      <file leaf-file-name="ProdutoDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="120" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
+            <state relative-caret-position="170">
+              <caret line="10" column="116" selection-start-line="10" selection-start-column="116" selection-end-line="10" selection-end-column="116" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,12 +145,9 @@
         <option value="$PROJECT_DIR$/src/com/ifpb/control/GerenciaFuncionario.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/model/Comanda.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/control/ComandaDao.java" />
-        <option value="$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java" />
-        <option value="$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/model/Cardapio.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.form" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.java" />
-        <option value="$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/alterarPedido.form" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/alterarPedido.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/control/GerenciaComandas.java" />
@@ -124,8 +159,6 @@
         <option value="$PROJECT_DIR$/src/com/ifpb/view/telaLogin.form" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/telaPrincipal.form" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/telaPrincipal.java" />
-        <option value="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.form" />
-        <option value="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/telaLogin.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/exceptions/CampoNuloException.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/model/Funcionario.java" />
@@ -135,6 +168,11 @@
         <option value="$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/control/FuncionarioDao.java" />
         <option value="$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java" />
+        <option value="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.form" />
+        <option value="$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java" />
+        <option value="$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java" />
+        <option value="$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java" />
+        <option value="$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java" />
       </list>
     </option>
   </component>
@@ -162,7 +200,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -216,20 +253,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ifpb" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="telaCadastro" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Lanchonete" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lanchonete" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ifpb" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="telaLogin" type="e9f4de52:FormNode" />
+              <item name="gerenciaMenu" type="e9f4de52:FormNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -424,11 +454,13 @@
       <workItem from="1538592536802" duration="3916000" />
       <workItem from="1538596490081" duration="241000" />
       <workItem from="1538606165805" duration="15090000" />
+      <workItem from="1538622525951" duration="637000" />
+      <workItem from="1538651796899" duration="3449000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155608000" />
+    <option name="totallyTimeSpent" value="159694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -444,8 +476,7 @@
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.17730497" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32916668" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.17730497" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
@@ -463,6 +494,7 @@
       <window_info anchor="bottom" id="Dependency Viewer" order="13" weight="0.32928064" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32916668" />
       <window_info id="Learn" order="7" weight="0.32858709" />
       <window_info anchor="right" id="Maven" order="9" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -557,9 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -567,12 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-            <element signature="e#1142#1143#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,13 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/editarFuncionario.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
@@ -644,16 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -692,9 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,9 +734,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaPrincipal.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMesa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -748,36 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/model/Produto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
-          <folding>
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-            <element signature="e#1142#1143#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
@@ -785,10 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding>
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -813,17 +779,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#256#257#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="64" column="113" selection-start-line="64" selection-start-column="113" selection-end-line="64" selection-end-column="113" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/exceptions/IdadeInvalidaException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state>
+          <caret selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/model/Produto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/exceptions/PrecoInvalidoException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -834,20 +820,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/telaCadastro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="102" column="121" lean-forward="true" selection-start-line="102" selection-start-column="121" selection-end-line="102" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/FuncionarioImpDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="112" selection-start-line="28" selection-start-column="112" selection-end-line="28" selection-end-column="112" />
+        <state relative-caret-position="187">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="116" selection-start-line="10" selection-start-column="116" selection-end-line="10" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/control/ProdutoImpDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="92" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ifpb/view/gerenciaMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
         </state>
       </provider>
     </entry>

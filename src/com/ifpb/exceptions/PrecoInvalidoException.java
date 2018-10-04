@@ -1,7 +1,14 @@
 package com.ifpb.exceptions;
 
 public class PrecoInvalidoException extends Exception {
-    public PrecoInvalidoException(){
-        super("Valor invalido.");
+    private String mensagem;
+
+    public PrecoInvalidoException(String mensagem){
+        super(mensagem);
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem(){
+        return mensagem;
     }
 }

@@ -2,6 +2,8 @@ package com.ifpb.view;
 
 import com.ifpb.control.ProdutoDao;
 import com.ifpb.control.ProdutoImpDao;
+import com.ifpb.exceptions.CampoNuloException;
+import com.ifpb.exceptions.PrecoInvalidoException;
 import com.ifpb.model.Produto;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,7 +40,12 @@ public class gerenciaMenu extends JFrame {
                 String codigo = textField1.getText();
                 String nome = textField2.getText();
                 String descricao = textArea1.getText();
-                Double preco = Double.valueOf(prcfrmfd.getText());
+                Double preco = 0.0;
+                try{
+                    preco = Double.valueOf(prcfrmfd.getText());
+                }catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "O formato do número é inválido.", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                }
                 prod = new Produto(codigo, preco, nome, descricao);
                 try{
                     if (daop.salvar(prod)){
@@ -49,6 +56,10 @@ public class gerenciaMenu extends JFrame {
                 }
                 catch(IOException | ClassNotFoundException ex){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                }catch (CampoNuloException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+                }catch (PrecoInvalidoException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMensagem(), "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

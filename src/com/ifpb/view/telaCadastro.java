@@ -59,7 +59,7 @@ public class telaCadastro extends JFrame {
                 String email = textField2.getText();
 
                 LocalDate nascimento = LocalDate.MIN;
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
                 try{
                     nascimento = LocalDate.parse(datanasc.getText(),formatter);
                     LocalDate nascimentoComp = LocalDate.parse(datanasc.getText(),formatter.withResolverStyle(LENIENT));

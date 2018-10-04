@@ -1,5 +1,7 @@
 package com.ifpb.control;
 
+import com.ifpb.exceptions.CampoNuloException;
+import com.ifpb.exceptions.PrecoInvalidoException;
 import com.ifpb.model.Produto;
 import java.io.*;
 import java.util.HashSet;
@@ -18,9 +20,14 @@ public class ProdutoImpDao implements ProdutoDao {
     }
 
     @Override
-    public boolean salvar(Produto p) throws IOException, ClassNotFoundException {
+    public boolean salvar(Produto p) throws IOException, ClassNotFoundException, CampoNuloException, PrecoInvalidoException {
         Set<Produto> produtos = getProdutos();
-
+        if (p.getCodigo().equals("") | p.getNome().equals("") | p.getDescricao().equals("")){
+            throw new CampoNuloException("Campos com * são obrigatórios!");
+        }
+        if(p.getPreco() <= 0){
+            throw new PrecoInvalidoException("O preço não pode ser menor ou igual a zero!");
+        }
         if (produtos.add(p)) {
             attArchive(produtos);
             return true;
