@@ -3,6 +3,7 @@ package com.ifpb.control;
 import com.ifpb.model.Comanda;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -94,5 +95,17 @@ public class ComandaImpDao implements ComandaDao {
             }
         }
         return comandasAbertas;
+    }
+
+    public Set<Comanda> buscarEmIntervalo(LocalDate inicio, LocalDate fim) throws IOException, ClassNotFoundException{
+        Set<Comanda> comandas = getComandas();
+        Set<Comanda> comandatmp = new HashSet<>();
+
+        for(Comanda comanda : comandas){
+            if(comanda.getData().compareTo(inicio)>=0 && comanda.getData().compareTo(fim)<=0){
+                comandatmp.add(comanda);
+            }
+        }
+        return comandatmp;
     }
 }
