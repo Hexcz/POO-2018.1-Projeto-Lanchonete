@@ -33,6 +33,7 @@ public class gerenciaPedido extends JDialog {
             JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
         }
         setContentPane(contentPane);
+        setLocationRelativeTo(null);
         setTitle("Criar pedido");
 
         try{
@@ -46,19 +47,25 @@ public class gerenciaPedido extends JDialog {
                     public void actionPerformed(ActionEvent e) {
                         Produto pd = (Produto) comboBox1.getSelectedItem();
                         Integer qtd = (Integer) spinner1.getValue();
-                        p = new Pedido(pd, qtd);
-                        c.create(p);
-                    }
-                }
-        );
 
+                        try{
+                            if(pd.equals(null) || qtd == null) {
+                                p = new Pedido(pd, qtd);
+                                c.create(p);
+                            }
+                        }catch(NullPointerException ex){
+                            JOptionPane.showMessageDialog(null, "Valores inválidos!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                        }
+                }
+        });
 
     }
 
     private void createUIComponents() {
-        if(cardapio!=null){
+
+        if(cardapio == null){
             comboBox1 = new JComboBox();
-        }else {
+        }else{
             comboBox1 = new JComboBox(cardapio.toArray());
         }
     }

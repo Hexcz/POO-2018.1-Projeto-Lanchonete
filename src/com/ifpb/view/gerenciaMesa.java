@@ -30,14 +30,8 @@ public class gerenciaMesa extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
-        try{
-            System.out.println("entrou no try");
-            System.out.println(cdao.getComandas());
-        }catch(IOException|ClassNotFoundException ex){
-            System.out.println("deu erro");
-        }
 
-        encerrarComandaButton.addActionListener(new ActionListener() {
+       encerrarComandaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Comanda c;
@@ -45,7 +39,7 @@ public class gerenciaMesa extends JFrame {
                         if(spinner1.getValue()!=null) {
                             c = cdao.buscarPorNumero((Integer) spinner1.getValue());
                             cdao.deletar(c);
-                            JOptionPane.showMessageDialog(null, "Comanda encerrada com sucesso. Total: " + c.calcTotal());
+                            JOptionPane.showMessageDialog(null, "Comanda encerrada com sucesso. Total: ");
                         }else{
                             JOptionPane.showMessageDialog(null, "Comanda não especificada corretamente.", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                         }
@@ -76,24 +70,22 @@ public class gerenciaMesa extends JFrame {
         fazerPedidoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Comanda c = null;
+                Comanda c;
                 try{
                     c = cdao.buscarPorNumero((Integer) spinner1.getValue());
+                    System.out.println(c);
+                    if(spinner1!=null) {
+                        gerenciaPedido gp = new gerenciaPedido(c);
+                        gp.pack();
+                        gp.setVisible(true);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Erro! Comanda não especificada corretamente", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                    }
                 }catch(ClassNotFoundException|IOException ex){
                     JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
                 }
-                if(c!=null && spinner1!=null) {
-                    gerenciaPedido gp = new gerenciaPedido(c);
-                    gp.pack();
-                    gp.setVisible(true);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Erro! Comanda não especificada corretamente", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
-                }
             }
         });
-
-
-
 
     }
 }
