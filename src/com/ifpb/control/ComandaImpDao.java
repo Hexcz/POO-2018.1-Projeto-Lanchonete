@@ -12,7 +12,7 @@ public class ComandaImpDao implements ComandaDao {
     private File file;
 
     public ComandaImpDao() throws IOException{
-        file = new File("Comanda");
+        file = new File("arquivos/Comandas");
 
         if(!file.exists()){
             file.createNewFile();
@@ -26,15 +26,17 @@ public class ComandaImpDao implements ComandaDao {
     }
 
     @Override
-    public Set<Comanda> getComandas() throws ClassNotFoundException, IOException {
+    public Set<Comanda> getComandas() throws IOException, ClassNotFoundException{
         if(file.length()>0){
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))){
-            return (Set<Comanda>) in.readObject();
-        }}else{
+            try(ObjectInputStream in = new ObjectInputStream(
+                    new FileInputStream(file)
+            )){
+                return (Set<Comanda>) in.readObject();
+            }
+        }else{
             return new HashSet<>();
         }
     }
-
     @Override
     public boolean salvar(Comanda c) throws ClassNotFoundException, IOException {
         Set<Comanda> comandas = getComandas();

@@ -15,7 +15,7 @@ public class FuncionarioImpDao implements FuncionarioDao {
     private File file;
 
     public FuncionarioImpDao() throws IOException{
-        file = new File("Funcionarios");
+        file = new File("arquivos/Funcionarios");
 
         if(!file.exists()){
             file.createNewFile();
