@@ -18,7 +18,7 @@ import java.util.Set;
 public class Comanda implements Serializable {
 
     private Set<Pedido> comanda;
-    private static int numeroComanda = 0;
+    private int numeroComanda;
     private boolean comandaAberta;
     private LocalDate data;
 
@@ -27,9 +27,9 @@ public class Comanda implements Serializable {
      * CONSTRUTORES.
      * */
 
-    public Comanda() {
+    public Comanda(int numComanda) {
         comanda = new HashSet<>();
-        this.numeroComanda = numeroComanda++;
+        this.numeroComanda = numComanda;
         this.comandaAberta = true;
         this.data = data.now();
     }
