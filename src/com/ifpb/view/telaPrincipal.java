@@ -55,7 +55,9 @@ public class telaPrincipal extends JFrame {
         mesasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                gerenciaMesa gm = new gerenciaMesa();
+                gm.pack();
+                gm.setVisible(true);
             }
         });
 
