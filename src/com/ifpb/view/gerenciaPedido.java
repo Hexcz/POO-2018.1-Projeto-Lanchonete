@@ -56,6 +56,10 @@ public class gerenciaPedido extends JDialog {
     }
 
     private void createUIComponents() {
-        comboBox1 = new JComboBox(cardapio.toArray());
+        if(cardapio!=null){
+            comboBox1 = new JComboBox();
+        }else {
+            comboBox1 = new JComboBox(cardapio.toArray());
+        }
     }
 }
