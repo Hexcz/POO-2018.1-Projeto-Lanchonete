@@ -12,7 +12,7 @@ public class ComandaImpDao implements ComandaDao {
     private File file;
 
     public ComandaImpDao() throws IOException{
-        file = new File("arquivos/Comandas");
+        file = new File("arquivos"+File.separator+"Comandas");
 
         if(!file.exists()){
             file.createNewFile();

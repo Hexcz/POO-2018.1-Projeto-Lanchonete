@@ -12,7 +12,7 @@ public class ProdutoImpDao implements ProdutoDao {
     private File file;
 
     public ProdutoImpDao() throws IOException{
-        file = new File("arquivos/Produtos");
+        file = new File("arquivos"+File.separator+"Produtos");
 
         if(!file.exists()){
             file.createNewFile();
