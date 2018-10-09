@@ -39,6 +39,7 @@ public class gerenciaComandasData extends JFrame {
         }
 
         setContentPane(contentPane);
+        pack();
         setLocationRelativeTo(null);
 
         buscarButton.addActionListener(new ActionListener() {

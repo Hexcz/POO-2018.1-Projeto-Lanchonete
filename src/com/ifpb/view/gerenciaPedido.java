@@ -33,6 +33,7 @@ public class gerenciaPedido extends JDialog {
             JOptionPane.showMessageDialog(null, "Falha no arquivo", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
         }
         setContentPane(contentPane);
+        pack();
         setLocationRelativeTo(null);
         setTitle("Criar pedido");
 

@@ -20,6 +20,7 @@ public class telaPrincipal extends JFrame {
 
     public telaPrincipal(Funcionario func) {
         setContentPane(contentPane);
+        pack();
         setLocationRelativeTo(null);
         setTitle("Tela Principal");
         f = func;
